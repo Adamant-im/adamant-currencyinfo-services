@@ -1,0 +1,14 @@
+{
+	"crypto":[
+		"ADM", "BTC", "ETH", "XRP", "DASH", "LSK", "DOGE", "BZ", "BCH", "EOS", "XLM", "USDT", "LTC", "TRX", "BSV", "ADA", "MIOTA", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "AT", "TUSD"
+	],
+	"fiat":{
+		"USD/RUB": "USDRUB_TOM",
+		"EUR/RUB": "EURRUB_TOM",
+		"GBR/RUB": "GBPRUB_TOM",
+		"CNY/RUB": "CNYRUB_TOM",
+		"JPY/RUB": "JPYRUB_TOD"
+	},
+	"cmcApiKey":"key_cmc",
+	"port":36668
+}
