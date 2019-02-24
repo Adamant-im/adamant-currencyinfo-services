@@ -1,12 +1,13 @@
 # adamant-currencyinfo-services is a crypto and fiat currency quotes storage service.
 
-## Installation
-### Requirements
+# Installation
+## Requirements
 * Ubuntu 16 / Ubuntu 18 (other OS had not been tested)
 * NodeJS v 8+ (already installed if you have a node on your machine)
 
 ## Setup
 ```
+su - adamant
 git clone https://github.com/Adamant-im/adamant-currencyinfo-services
 cd ./adamant-currencyinfo-services
 npm i
