@@ -1,4 +1,4 @@
-# adamant-currencyinfo-services is a crypto and fiat currency quotes storage service.
+ADAMANT InfoServices is a crypto and fiat currency rates service provider. It collects rates from MOEX and Coinmarketcap, calculates cross-rates, and provides information via API.
 
 # Installation
 ## Requirements
@@ -27,8 +27,6 @@ Parameters:
 * `port` <number> Port for providing InfoServices Rates API. It will be available at http://IP:port.
 * `refreshInterval` <number> Refresh rate in minutes to fetch data from MOEX and Coinmarketcap. Note: often requests can lead to blocking of your API keys.
   
-.
-
 ## Launching
 You can start ADAMANT InfoServices with `node app` command, but it is recommended to use process manager:
 ```
@@ -48,8 +46,6 @@ Add string:
 # Usage
 
 http://IP:36668/get?coin=ADM
-
-
 
 
 
