@@ -19,12 +19,12 @@ nano config.json
 ```
 
 Parameters:
-* `crypto` <array> List of Coins for each of which tickers will be collected together with **baseCoins**
-* `baseCoins` <array> List of base coins for each of which tickers will be collected together with **crypto**
-* `fiat` <object> List of fiat pairs and their codes MOEX api
-* `cmcApiKey` <object> api key coinmarketcap.com api
-* `port` <number> Port for connecting the api server. The api is available at http://IP:port
-* `refreshInterval` <number> Refresh rate MOEX and coinmarketcap api
+* `crypto` <array> List of coins to fetch rates from Coincarketcap
+* `fiat` <object> List of fiat pairs and their codes to fetch from MOEX
+* `baseCoins` <array> List of coins to calculate all availeble pairs using `crypto` and `fiat`
+* `cmcApiKey` <string> Coinmarketcap API key. You must get yours at https://coinmarketcap.com/api/.
+* `port` <number> Port for providing InfoServices Rates API. It will be available at http://IP:port.
+* `refreshInterval` <number> Refresh rate in minutes to fetch data from MOEX and Coinmarketcap. Note: often requests can lead to blocking of your API keys.
 
 ## Install MongoDB
 ### Step 1: Import the MongoDB repository
