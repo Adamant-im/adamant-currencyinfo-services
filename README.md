@@ -45,7 +45,8 @@ Add string:
 
 # Usage
 
-http://IP:36668/get?coin=ADM
+To test InfoServices successfully installed, try to open link
+http://IP:36668/get?coin=ADM in web browser.
 
-
+For usage see [InfoServices API documentation](https://github.com/Adamant-im/adamant-currencyinfo-services/wiki/InfoServices-API-documentation).
 
