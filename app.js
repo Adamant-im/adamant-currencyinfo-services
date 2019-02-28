@@ -8,6 +8,7 @@ const {
 	baseCoins,
 	crypto
 } = require('./config.json');
+
 const db = require('./db/mongodb');
 
 router(currencys);
@@ -24,7 +25,6 @@ function refresh() {
 			
 			converter(currencys);
 			
-			console.log({currencys});
 			db.save(currencys, (res) => {
 				if (res)
 				console.log('Success saved currencys');
