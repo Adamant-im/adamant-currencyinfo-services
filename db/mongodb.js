@@ -6,7 +6,10 @@ const mongoClient = new MongoClient("mongodb://localhost:27017/", {
 
 let CurrencysDB;
 
-mongoClient.connect((err, client)=>{
+mongoClient.connect((err, client) => {
+    if (err)
+        throw (err);
+
     const db = client.db("currencysdb");
     CurrencysDB = db.collection("currencys");
 });
@@ -15,7 +18,7 @@ module.exports.save = (currencys, cb) => {
     CurrencysDB.insertOne({
         date: new Date().getTime(),
         currencys
-    }, (err, result)=>{
+    }, (err, result) => {
         if (err)
             cb(false)
         else
@@ -25,7 +28,7 @@ module.exports.save = (currencys, cb) => {
 }
 
 module.exports.getHistory = (limit, cb) => {
-    CurrencysDB.find({}).toArray((err, docs)=>{
+    CurrencysDB.find({}).toArray((err, docs) => {
         if (err)
             cb(false)
         else
