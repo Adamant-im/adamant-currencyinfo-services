@@ -1,14 +1,14 @@
 {
-	"crypto":["ADM", "BTC", "ETH", "XRP", "DASH", "LSK", "DOGE", "BZ", "BCH", "EOS", "XLM", "USDT", "LTC", "TRX", "BSV", "ADA", "MIOTA", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "AT", "TUSD"],
-	"fiat":{
+	"crypto": ["ADM", "BTC", "ETH", "XRP", "DASH", "LSK", "DOGE", "BZ", "BCH", "EOS", "XLM", "USDT", "LTC", "TRX", "BSV", "ADA", "MIOTA", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "AT", "TUSD"],
+	"baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH"],
+	"fiat": {
 		"USD/RUB": "USDRUB_TOM",
 		"EUR/RUB": "EURRUB_TOM",
 		"GBR/RUB": "GBPRUB_TOM",
 		"CNY/RUB": "CNYRUB_TOM",
 		"JPY/RUB": "JPYRUB_TOD"
 	},
-	"cmcApiKey":"key_cmc",
-	"baseCoins":["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH"],
-	"port":36668,
-	"refreshInterval":35
+	"cmcApiKey": "7b99c7fa-0760-4879-8507-481742d1ece7",
+	"port": 36668,
+	"refreshInterval": 10
 }
