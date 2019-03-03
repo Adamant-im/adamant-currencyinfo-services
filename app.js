@@ -24,6 +24,7 @@ function refresh() {
 			Object.assign(currencys, data);
 			
 			converter(currencys);
+			console.log(currencys);
 			
 			db.save(currencys, (res) => {
 				if (res)
