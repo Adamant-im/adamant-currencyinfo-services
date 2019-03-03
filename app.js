@@ -45,7 +45,7 @@ function converter(currencys) {
 		if(!price) return;
 		crypto.forEach(c=>{
 			const priceAlt = 1/currencys[c+'/USD'];
-			currencys[c+'/'+b]=+(priceAlt/price).toFixed(8);
+			currencys[c+'/'+b]=+(price/priceAlt).toFixed(8);
 		});
 	});
 }
