@@ -26,9 +26,6 @@ Parameters:
 * `cmcApiKey` <string> Coinmarketcap API key. You must get yours at https://coinmarketcap.com/api/.
 * `port` <number> Port for providing InfoServices Rates API. It will be available at http://IP:port.
 * `refreshInterval` <number> Refresh rate in minutes to fetch data from MOEX and Coinmarketcap. Note: often requests can lead to blocking of your API keys.
-
-```
-```
   
 ## Launching
 You can start ADAMANT InfoServices with `node app` command, but it is recommended to use process manager:
