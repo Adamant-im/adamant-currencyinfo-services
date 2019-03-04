@@ -8,7 +8,7 @@
 		"CNY/RUB": "CNYRUB_TOM",
 		"JPY/RUB": "JPYRUB_TOD"
 	},
-	"cmcApiKey": "7b99c7fa-0760-4879-8507-481742d1ece7",
+	"cmcApiKey": "Put yours Coinmarketcap API key",
 	"port": 36668,
-	"refreshInterval": 10
+	"refreshInterval": 60
 }
