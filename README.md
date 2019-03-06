@@ -2,9 +2,9 @@ ADAMANT InfoServices is a crypto and fiat currency rates service provider. It co
 
 # Installation
 ## Requirements
-* Ubuntu 16 / Ubuntu 18 (other OS had not been tested)
-* NodeJS v 8+ (already installed if you have a node on your machine)
-* MongoDB ([installation instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/))
+- Ubuntu 16 / Ubuntu 18 (other OS had not been tested)
+- NodeJS v 8+ (already installed if you have a node on your machine)
+- MongoDB ([installation instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/))
 
 ## Setup
 ```
@@ -20,13 +20,14 @@ nano config.json
 ```
 
 Parameters:
-* `crypto` <array> List of coins to fetch rates from Coincarketcap
-* `fiat` <object> List of fiat pairs and their codes to fetch from MOEX
-* `baseCoins` <array> List of coins to calculate all available pairs using `crypto` and `fiat`
-* `cmcApiKey` <string> Coinmarketcap API key. You must get yours at https://coinmarketcap.com/api/.
-* `port` <number> Port for providing InfoServices Rates API. It will be available at http://IP:port.
-* `refreshInterval` <number> Refresh rate in minutes to fetch data from MOEX and Coinmarketcap. Note: often requests can lead to blocking of your API keys.
+- `crypto` <array> List of coins to fetch rates from Coincarketcap
+- `fiat` <object> List of fiat pairs and their codes to fetch from MOEX
+- `baseCoins` <array> List of coins to calculate all available pairs using `crypto` and `fiat`
+- `cmcApiKey` <string> Coinmarketcap API key. You must get yours at https://coinmarketcap.com/api/.
+- `port` <number> Port for providing InfoServices Rates API. It will be available at http://IP:port.
+- `refreshInterval` <number> Refresh rate in minutes to fetch data from MOEX and Coinmarketcap. Note: often requests can lead to blocking of your API keys.
   
+
 ## Launching
 You can start ADAMANT InfoServices with `node app` command, but it is recommended to use process manager:
 ```
