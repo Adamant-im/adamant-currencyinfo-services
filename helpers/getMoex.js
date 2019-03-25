@@ -16,9 +16,10 @@ module.exports = (cb) => {
                 const c = _.findWhere(info, {
                     2: code
 				});
-                const price = (c[14] + c[15]) / 2;
-                data[m] = +price.toFixed(8);
-                if (m == 'USD/RUB') {
+                let price = (c[14] + c[15]) / 2;
+				if(m ==='JPY/RUB') price /= 100;
+				data[m] = +price.toFixed(8);
+				if (m == 'USD/RUB') {
                     data['RUB/USD'] = +(1 / data['USD/RUB']).toFixed(8);
 					} else {
                     const market = 'USD/' + m.replace('/RUB', '');
