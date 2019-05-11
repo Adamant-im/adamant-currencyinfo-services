@@ -61,7 +61,6 @@ module.exports.getHistory = (params, cb) => {
 				} else {
 					if (coin){
 						docs.tickers = docs.forEach(d =>{
-							const filtered = {};
 							Object.keys(d.tickers).forEach(pair =>{
 								if (!~pair.indexOf(coin)){
 									delete d.tickers[pair];
