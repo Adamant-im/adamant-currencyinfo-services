@@ -30,12 +30,20 @@ module.exports.save = (tickers, cb) => {
 
 module.exports.getHistory = (params, cb) => {
 	try{
+		if(!Object.keys(params).length){
+			cb(false, 'No params query!');
+			return;
+		}
+		
 	let {limit, from, to, timestamp, coin} = params;
 	const q = {};
 
 	if (from && to){
 		q.date = { $gte: +from * 1000, $lte: +to * 1000};
 		limit = limit || 100;
+		if(+from > +to){
+			cb(false, 'From can not be more than To!')
+		}
 	}
 	if (timestamp){
 		q.date = {$lte: timestamp * 1000};
@@ -48,7 +56,7 @@ module.exports.getHistory = (params, cb) => {
 		.limit(+limit)
 		.toArray((err, docs) => {
 			if (err){
-				cb(false);
+				cb(false, err);
 			} else {
 				if(coin){
 					docs.tickers = docs.forEach(d =>{
@@ -64,7 +72,7 @@ module.exports.getHistory = (params, cb) => {
 			}
 		});
 	} catch(e){
-		cb(false);
+		cb(false, e);
 		console.log('Error getHistory ', params, e);
 	} 
 };

@@ -30,8 +30,12 @@ app.get('/get', (req, res) => {
 });
 
 app.get('/getHistory', (req, res) => {
-	db.getHistory(req.query, (h) => {
-		res.json(respSuccess(h));
+	db.getHistory(req.query, (h, msg) => {
+		if(h){
+			res.json(respSuccess(h));
+		} else {
+			res.json(respError(msg));
+		}
 	});
 });
 module.exports = (tickers_) => {
@@ -45,5 +49,12 @@ function respSuccess (data) {
 		success: true,
 		date: new Date().getTime(),
 		result: data
+	};
+}
+function respError (msg) {
+	return {
+		success: false,
+		date: new Date().getTime(),
+		msg
 	};
 }
