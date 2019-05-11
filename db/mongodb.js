@@ -38,7 +38,7 @@ module.exports.getHistory = (params, cb) => {
 		limit = limit || 10000000;
 	}
 	if (timestamp){
-		q.date = {$lte: timestamp * 1000}};
+		q.date = {$lte: timestamp * 1000};
 		limit = 1;
 	}
 
