@@ -34,7 +34,7 @@ module.exports.getHistory = (params, cb) => {
 			cb(false, 'No params query!');
 			return;
 		}
-		
+
 	let {limit, from, to, timestamp, coin} = params;
 	const q = {};
 
@@ -42,7 +42,8 @@ module.exports.getHistory = (params, cb) => {
 		q.date = { $gte: +from * 1000, $lte: +to * 1000};
 		limit = limit || 100;
 		if(+from > +to){
-			cb(false, 'From can not be more than To!')
+			cb(false, 'FROM can not be more than TO!')
+			return;
 		}
 	}
 	if (timestamp){
