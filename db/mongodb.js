@@ -27,11 +27,26 @@ module.exports.save = (currencys, cb) => {
 
 }
 
-module.exports.getHistory = (limit, cb) => {
-    CurrencysDB.find({}).toArray((err, docs) => {
-        if (err)
+module.exports.getHistory = (params, cb) => {
+    let {limit, from, to, timestamp} = params;
+    let q = {};
+  
+    if(from && to){
+        q = { date: { $gte: +from * 1000, $lte: +to * 1000}};
+        limit = limit || 10000000;
+    }
+    if(timestamp){
+        q = {date:{$lte: timestamp * 1000}};
+        limit = 1;
+    }
+    CurrencysDB.find(q)
+     .sort({date: -1})
+     .limit(limit)
+     .toArray((err, docs) => {
+        if (err){
             cb(false)
-        else
+        } else {
             cb(docs);
-    });
+        }
+    })
 }

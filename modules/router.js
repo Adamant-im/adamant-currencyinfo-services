@@ -28,7 +28,7 @@ app.get('/get', (req, res) => {
 });
 
 app.get('/getHistory', (req, res) => {
-    db.getHistory(5, (h) => {
+    db.getHistory(req.query, (h) => {
         res.json(respSuccess(h));
 	});
 });
