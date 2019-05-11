@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 var bodyParser = require('body-parser');
 const port = require('../config.json').port;
-let currencys;
+let tickers;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -13,19 +13,19 @@ app.use(bodyParser.urlencoded({
 app.get('/get', (req, res) => {
 	let coins = req.query.coin;
 	if (!coins) {
-		res.json(respSuccess(currencys));
+		res.json(respSuccess(tickers));
 	} else {
 		coins = coins.toUpperCase();
-		const filterredCurrencys = {};
+		const filterredTickers = {};
 		let arrCoins = [coins];
 		if (~coins.indexOf(',')) {
 			arrCoins = coins.split(',');
 		}
 		arrCoins.forEach(coin => {
-			const filteredMarkets = Object.keys(currencys).filter(c => ~c.indexOf(coin.trim()));
-			filteredMarkets.forEach(c => filterredCurrencys[c] = currencys[c]);
+			const filteredMarkets = Object.keys(tickers).filter(c => ~c.indexOf(coin.trim()));
+			filteredMarkets.forEach(c => filterredTickers[c] = tickers[c]);
 		});
-		res.json(respSuccess(filterredCurrencys));
+		res.json(respSuccess(filterredTickers));
 	}
 });
 
@@ -34,8 +34,8 @@ app.get('/getHistory', (req, res) => {
 		res.json(respSuccess(h));
 	});
 });
-module.exports = (currencys_) => {
-	currencys = currencys_;
+module.exports = (tickers_) => {
+	tickers = tickers_;
 };
 
 app.listen(port, () => console.info('ADAMANT-INFO server listening on port ' + port));

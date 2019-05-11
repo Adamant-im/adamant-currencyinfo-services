@@ -4,20 +4,20 @@ const mongoClient = new MongoClient("mongodb://localhost:27017/", {
 	useNewUrlParser: true
 });
 
-let CurrencysDB;
+let TickersDB;
 
 mongoClient.connect((err, client) => {
 	if (err)
 	{throw (err);}
 
-	const db = client.db("currencysdb");
-	CurrencysDB = db.collection("currencys");
+	const db = client.db("tickersdb");
+	TickersDB = db.collection("tickers");
 });
 
-module.exports.save = (currencys, cb) => {
-	CurrencysDB.insertOne({
+module.exports.save = (tickers, cb) => {
+	TickersDB.insertOne({
 		date: new Date().getTime(),
-		currencys
+		tickers
 	}, (err, result) => {
 		if (err){
 			cb(false);
@@ -31,32 +31,40 @@ module.exports.save = (currencys, cb) => {
 module.exports.getHistory = (params, cb) => {
 	try{
 	let {limit, from, to, timestamp, coin} = params;
-	const q = {date:{}};
-  
+	const q = {};
+
 	if (from && to){
 		q.date = { $gte: +from * 1000, $lte: +to * 1000};
-		limit = limit || 10000000;
+		limit = limit || 100;
 	}
 	if (timestamp){
 		q.date = {$lte: timestamp * 1000};
 		limit = 1;
 	}
+	limit = Math.min(100, limit);
 
-	if (coins){
-		q.currencys={$regex: coin}
-	}
-	
-	CurrencysDB.find(q)
+	TickersDB.find(q)
 		.sort({date: -1})
-		.limit(limit)
+		.limit(+limit)
 		.toArray((err, docs) => {
 			if (err){
 				cb(false);
 			} else {
+				if(coin){
+					docs.tickers = docs.forEach(d =>{
+						const filtered = {};
+						Object.keys(d.tickers).forEach(pair =>{
+							if(!~pair.indexOf(coin)){
+								delete d.tickers[pair];
+							}
+						});
+					});
+				}
 				cb(docs);
 			}
 		});
 	} catch(e){
+		cb(false);
 		console.log('Error getHistory ', params, e);
 	} 
 };

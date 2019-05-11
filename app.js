@@ -1,4 +1,4 @@
-const currencys = {};
+const tickers = {};
 const Moex = require('./helpers/getMoex');
 const Cmc = require('./helpers/getCmc');
 const _ = require('underscore');
@@ -11,28 +11,28 @@ const {
 
 const db = require('./db/mongodb');
 
-router(currencys);
+router(tickers);
 
 function refresh () {
 	console.log('------------ Update -------------');
 	Moex(data => {
 		if (data){
-			Object.assign(currencys, data);
+			Object.assign(tickers, data);
 		}
 
 		Cmc('USD', data => {
 			if (data){
-				Object.assign(currencys, data);
+				Object.assign(tickers, data);
 			}
 
-			converter(currencys);
-			console.log(currencys);
+			converter(tickers);
+			console.log(tickers);
 
-			db.save(currencys, (res) => {
+			db.save(tickers, (res) => {
 				if (res)
-				{console.log('Success saved currencys');}
+				{console.log('Success saved tickers');}
 				else
-				{console.log('Error saved currencys');}
+				{console.log('Error saved tickers');}
 			});
 		});
 	});
@@ -42,13 +42,13 @@ refresh();
 
 setInterval(refresh, refreshInterval * 60000);
 
-function converter (currencys) {
+function converter (tickers) {
 	baseCoins.forEach(b => {
-		const price = currencys['USD/' + b] || 1 / currencys[b + '/USD'];
+		const price = tickers['USD/' + b] || 1 / tickers[b + '/USD'];
 		if (!price) {return;}
 		crypto.forEach(c => {
-			const priceAlt = 1 / currencys[c + '/USD'];
-			currencys[c + '/' + b] = +(price / priceAlt).toFixed(8);
+			const priceAlt = 1 / tickers[c + '/USD'];
+			tickers[c + '/' + b] = +(price / priceAlt).toFixed(8);
 		});
 	});
 }
