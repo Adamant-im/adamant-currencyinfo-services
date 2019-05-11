@@ -18,7 +18,9 @@ app.get('/get', (req, res) => {
 		coins = coins.toUpperCase();
 		const filterredCurrencys = {};
 		let arrCoins = [coins];
-		if (~coins.indexOf(',')) {arrCoins = coins.split(',');}
+		if (~coins.indexOf(',')) {
+			arrCoins = coins.split(',');
+		}
 		arrCoins.forEach(coin => {
 			const filteredMarkets = Object.keys(currencys).filter(c => ~c.indexOf(coin.trim()));
 			filteredMarkets.forEach(c => filterredCurrencys[c] = currencys[c]);

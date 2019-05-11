@@ -29,17 +29,23 @@ module.exports.save = (currencys, cb) => {
 };
 
 module.exports.getHistory = (params, cb) => {
-	let {limit, from, to, timestamp} = params;
-	let q = {};
+	try{
+	let {limit, from, to, timestamp, coin} = params;
+	const q = {date:{}};
   
 	if (from && to){
-		q = { date: { $gte: +from * 1000, $lte: +to * 1000}};
+		q.date = { $gte: +from * 1000, $lte: +to * 1000};
 		limit = limit || 10000000;
 	}
 	if (timestamp){
-		q = {date: {$lte: timestamp * 1000}};
+		q.date = {$lte: timestamp * 1000}};
 		limit = 1;
 	}
+
+	if (coins){
+		q.currencys={$regex: coin}
+	}
+	
 	CurrencysDB.find(q)
 		.sort({date: -1})
 		.limit(limit)
@@ -50,4 +56,7 @@ module.exports.getHistory = (params, cb) => {
 				cb(docs);
 			}
 		});
+	} catch(e){
+		console.log('Error getHistory ', params, e);
+	} 
 };
