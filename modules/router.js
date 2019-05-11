@@ -31,7 +31,7 @@ app.get('/get', (req, res) => {
 
 app.get('/getHistory', (req, res) => {
 	db.getHistory(req.query, (h, msg) => {
-		if(h){
+		if (h){
 			res.json(respSuccess(h));
 		} else {
 			res.json(respError(msg));
