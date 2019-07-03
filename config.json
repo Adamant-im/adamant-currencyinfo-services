@@ -1,5 +1,5 @@
 {
-	"crypto": ["ADM", "BTC", "ETH", "XRP", "DASH", "LSK", "DOGE", "BZ", "BCH", "EOS", "XLM", "USDT", "LTC", "TRX", "BSV", "ADA", "MIOTA", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "AT", "TUSD"],
+	"crypto": ["ADM", "BTC", "ETH", "XRP", "DASH", "LSK", "DOGE", "BZ", "BCH", "EOS", "XLM", "USDT", "LTC", "TRX", "BSV", "ADA", "MIOTA", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "AT", "TUSD", "KCS"],
 	"baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH"],
 	"fiat": {
 		"USD/RUB": "USDRUB_TOM",
