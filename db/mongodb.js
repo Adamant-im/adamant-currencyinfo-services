@@ -1,3 +1,4 @@
+const log = require('../helpers/log');
 const MongoClient = require("mongodb").MongoClient;
 
 const mongoClient = new MongoClient("mongodb://localhost:27017/", {
@@ -7,31 +8,38 @@ const mongoClient = new MongoClient("mongodb://localhost:27017/", {
 let TickersDB;
 
 mongoClient.connect((err, client) => {
-	if (err)
-	{throw (err);}
-
+	if (err) {
+		throw (err);
+	}
 	const db = client.db("tickersdb");
 	TickersDB = db.collection("tickers");
 });
 
-module.exports.save = (tickers, cb) => {
+// module.exports.save = (tickers, cb) => {
+// 	TickersDB.insertOne({
+// 		date: new Date().getTime(),
+// 		tickers
+// 	}, (err, result) => {
+// 		if (err){
+// 			cb(false);
+// 		} else {
+// 			cb(result);
+// 		}
+// 	});
+// };
+
+
+module.exports.save = (tickers) => {
 	TickersDB.insertOne({
 		date: new Date().getTime(),
 		tickers
-	}, (err, result) => {
-		if (err){
-			cb(false);
-		} else {
-			cb(result);
-		}
 	});
-
 };
 
 module.exports.getHistory = (params, cb) => {
 	try {
-		if (!Object.keys(params).length){
-			cb(false, 'No params query!');
+		if (!Object.keys(params).length) {
+			cb(false, 'Provide parameters for getHistory request');
 			return;
 		}
 
@@ -41,8 +49,8 @@ module.exports.getHistory = (params, cb) => {
 		if (from && to){
 			q.date = { $gte: +from * 1000, $lte: +to * 1000};
 			limit = limit || 100;
-			if (+from > +to){
-				cb(false, 'FROM can not be more than TO!');
+			if (+from > +to) {
+				cb(false, `Wrong time interval: 'to' should be more, than 'from'`);
 				return;
 			}
 		}
@@ -73,6 +81,6 @@ module.exports.getHistory = (params, cb) => {
 			});
 	} catch (e){
 		cb(false, e);
-		console.log('Error getHistory ', params, e);
+		log.error('Error at getHistory: ', params, e);
 	} 
 };

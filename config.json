@@ -1,5 +1,8 @@
 {
-	"crypto": ["ADM", "BTC", "ETH", "XRP", "DASH", "LSK", "DOGE", "BZ", "BCH", "EOS", "XLM", "USDT", "LTC", "TRX", "BSV", "ADA", "MIOTA", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "AT", "TUSD", "KCS", "USDS"],
+	"crypto_cmc": ["ADM", "BTC", "ETH", "DASH", "LSK", "DOGE", "BZ", "BCH", "USDT", "LTC", "TRX", "BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS", "USDS"],
+	"crypto_cc": [],
+	"crypto_cg": [],
+	"crypto_cg_coinids": ["resfinex-token"],
 	"baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH"],
 	"fiat": {
 		"USD/RUB": "USDRUB_TOM",
@@ -9,6 +12,22 @@
 		"JPY/RUB": "JPYRUB_TOD"
 	},
 	"cmcApiKey": "Put yours Coinmarketcap API key",
+	"ccApiKey": "Put yours CryptoCompare API key",
+	"cgApiKey": "No need for Coingecko API key",
 	"port": 36668,
-	"refreshInterval": 60
+	"refreshInterval": 10,
+	"slack": "https://hooks.slack.com/services/",
+    "adamant_notify": "",
+	"passPhrase": "joy logic job estate kite",
+	"node_ADM": [
+		"http://localhost:36666",
+		"https://endless.adamant.im",
+		"https://clown.adamant.im",
+		"https://bid.adamant.im",
+		"https://unusual.adamant.im",
+		"https://debate.adamant.im",
+		"http://185.231.245.26:36666",
+		"http://80.211.177.181:36666",
+		"https://lake.adamant.im"
+	]
 }

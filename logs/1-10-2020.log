@@ -1,0 +1,86 @@
+
+_________________1-10-2020 12:17:45 PM_________________
+
+	InfoService info|12:17:47 PM|------------ Rates update started -------------
+	InfoService info|12:17:47 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:17:47 PM|Unable to process request to iss.moex.com
+	InfoService error|12:17:47 PM|Notifier error: ReferenceError: adamant_notify is not defined
+	InfoService error|12:17:47 PM|Error: Unable to get data from MOEX. InfoService will provide no rates.
+	InfoService error|12:17:47 PM|Notifier error: ReferenceError: adamant_notify is not defined
+_________________1-10-2020 12:18:48 PM_________________
+
+	InfoService info|12:18:50 PM|------------ Rates update started -------------
+	InfoService info|12:18:50 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:18:50 PM|Unable to process request to iss.moex.com
+	InfoService error|12:18:50 PM|Error: Unable to get data from MOEX. InfoService will provide no rates.
+_________________1-10-2020 12:19:00 PM_________________
+
+	InfoService info|12:19:02 PM|------------ Rates update started -------------
+	InfoService info|12:19:02 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:19:02 PM|Unable to process request to iss.moex.com
+	InfoService error|12:19:04 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService error|12:19:04 PM|Error: Unable to get data from MOEX. InfoService will provide no rates.
+	InfoService error|12:19:07 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService error|12:19:07 PM|[Health check]: ALL nodes don`t ping! Pls check you internet connection!
+_________________1-10-2020 12:23:41 PM_________________
+
+	InfoService info|12:23:43 PM|------------ Rates update started -------------
+	InfoService info|12:23:43 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:23:45 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService error|12:23:46 PM|Unable to process request to iss.moex.com
+	InfoService error|12:23:48 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService error|12:23:48 PM|Error: Unable to get data from MOEX. InfoService will provide no rates.
+	InfoService error|12:23:50 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|12:23:50 PM|------------ Rates update started -------------
+	InfoService error|12:23:51 PM|Unable to process request to iss.moex.com
+	InfoService error|12:23:51 PM|Error: Unable to get data from MOEX. InfoService will provide no rates.
+	InfoService info|12:23:56 PM|------------ Rates update started -------------
+	InfoService error|12:23:56 PM|Unable to process request to iss.moex.com
+	InfoService error|12:23:57 PM|Error: Unable to get data from MOEX. InfoService will provide no rates.
+_________________1-10-2020 12:31:29 PM_________________
+
+	InfoService info|12:31:32 PM|------------ Rates update started -------------
+	InfoService info|12:31:32 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:31:34 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService error|12:31:36 PM|Error: Unable to save new rates. InfoService will provide no rates.
+	InfoService info|12:31:37 PM|Coinmarketcap rates updated against USD successfully
+_________________1-10-2020 12:35:33 PM_________________
+
+	InfoService info|12:35:35 PM|------------ Rates update started -------------
+	InfoService info|12:35:35 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:35:36 PM|Unable to process data from request to pro-api.coinmarketcap.com. Wrong CMC API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|12:35:36 PM|Error: Unable to get data from Coinmarketcap. InfoService will provide no rates.
+_________________1-10-2020 12:38:19 PM_________________
+
+	InfoService info|12:38:21 PM|------------ Rates update started -------------
+	InfoService info|12:38:21 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:38:23 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|12:38:26 PM|New rates saved successfully
+	InfoService info|12:38:26 PM|Coinmarketcap rates updated against USD successfully
+_________________1-10-2020 12:42:24 PM_________________
+
+	InfoService info|12:42:26 PM|------------ Rates update started -------------
+	InfoService info|12:42:27 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:42:29 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService error|12:42:56 PM|Unable to process request to pro-api.coinmarketcap.com
+	InfoService error|12:42:58 PM|Error: Unable to get data from Coinmarketcap. InfoService will provide previous rates.
+	InfoService info|12:42:59 PM|------------ Rates update started -------------
+	InfoService info|12:43:03 PM|New rates saved successfully
+	InfoService info|12:43:03 PM|Coinmarketcap rates updated against USD successfully
+_________________1-10-2020 12:44:37 PM_________________
+
+	InfoService info|12:44:39 PM|------------ Rates update started -------------
+	InfoService info|12:44:39 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:44:41 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|12:44:44 PM|New rates saved successfully
+	InfoService info|12:44:44 PM|Coinmarketcap rates updated against USD successfully
+_________________1-10-2020 12:47:40 PM_________________
+
+	InfoService info|12:47:42 PM|------------ Rates update started -------------
+	InfoService info|12:47:42 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|12:47:45 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|12:47:49 PM|New rates saved successfully
+	InfoService info|12:47:49 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|12:48:12 PM|------------ Rates update started -------------
+	InfoService info|12:48:14 PM|New rates saved successfully
+	InfoService info|12:48:14 PM|Coinmarketcap rates updated against USD successfully

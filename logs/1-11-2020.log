@@ -1,0 +1,287 @@
+
+_________________1-11-2020 1:31:10 PM_________________
+
+	InfoService info|1:31:17 PM|------------ Rates update started -------------
+	InfoService info|1:31:17 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|1:31:17 PM|Unable to process data from request to pro-api.coinmarketcap.com. Wrong CMC API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|1:31:17 PM|Error: Unable to get data from Coinmarketcap. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 1:31:47 PM_________________
+
+	InfoService info|1:31:49 PM|------------ Rates update started -------------
+	InfoService info|1:31:49 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|1:31:50 PM|Unable to process data from request to pro-api.coinmarketcap.com. Wrong CMC API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|1:31:50 PM|Error: Unable to get data from Coinmarketcap. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 1:33:28 PM_________________
+
+	InfoService info|1:33:30 PM|------------ Rates update started -------------
+	InfoService info|1:33:30 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|1:33:30 PM|Unable to process data from request to pro-api.coinmarketcap.com. Wrong CMC API key? Error: TypeError: Cannot read property 'forEach' of undefined
+	InfoService error|1:33:30 PM|Error: Unable to get data from Coinmarketcap. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 4:21:43 PM_________________
+
+	InfoService info|4:21:45 PM|------------ Rates update started -------------
+	InfoService info|4:21:45 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|4:21:45 PM|Unable to process data from request to pro-api.coinmarketcap.com. Wrong CMC API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|4:21:45 PM|Error: Unable to get data from Coinmarketcap. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 4:22:57 PM_________________
+
+	InfoService info|4:22:59 PM|------------ Rates update started -------------
+	InfoService info|4:22:59 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|4:23:01 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService error|4:23:02 PM|Unable to process data from request to pro-api.coinmarketcap.com. Wrong CMC API key? Error: TypeError: Cannot read property 'forEach' of undefined
+_________________1-11-2020 4:24:20 PM_________________
+
+	InfoService info|4:24:21 PM|------------ Rates update started -------------
+	InfoService info|4:24:21 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|4:24:23 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService error|4:24:25 PM|Error: Unable to save new rates. InfoService will provide previous current rates and.
+	InfoService info|4:24:26 PM|Coinmarketcap rates updated against USD successfully
+_________________1-11-2020 4:27:19 PM_________________
+
+	InfoService info|4:27:21 PM|------------ Rates update started -------------
+	InfoService info|4:27:21 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|4:27:23 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService error|4:27:25 PM|Error: Unable to save new rates in history database: TypeError: Cannot read property 'insertOne' of undefined
+	InfoService info|4:27:26 PM|Coinmarketcap rates updated against USD successfully
+_________________1-11-2020 4:29:24 PM_________________
+
+	InfoService info|4:29:26 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|4:29:28 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|4:29:31 PM|------------ Rates update started -------------
+	InfoService info|4:29:34 PM|New rates from all sources saved successfully
+	InfoService info|4:29:34 PM|Coinmarketcap rates updated against USD successfully
+_________________1-11-2020 4:37:15 PM_________________
+
+	InfoService info|4:37:17 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|4:37:19 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|4:37:22 PM|------------ Rates update started -------------
+	InfoService info|4:37:24 PM|Coinmarketcap rates updated against USD successfully
+	InfoService error|4:37:24 PM|Unable to process request to iss.moex.com
+	InfoService error|4:37:25 PM|Error: Unable to get data from MOEX. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 4:39:11 PM_________________
+
+	InfoService info|4:39:12 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|4:39:17 PM|------------ Rates update started -------------
+	InfoService error|4:39:18 PM|Unable to process data from request to pro-api.coinmarketcap.com. Wrong CMC API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|4:39:18 PM|Error: Unable to get data from Coinmarketcap. InfoService will provide previous rates; historical rates wouldn't be saved.
+	InfoService info|4:39:19 PM|MOEX rates updated successfully
+_________________1-11-2020 4:39:47 PM_________________
+
+	InfoService info|4:39:49 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|4:39:54 PM|------------ Rates update started -------------
+	InfoService error|4:39:55 PM|Unable to process data from request to pro-api.coinmarketcap.com. Wrong CMC API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|4:39:55 PM|Error: Unable to get data from Coinmarketcap. InfoService will provide previous rates; historical rates wouldn't be saved.
+	InfoService info|4:39:56 PM|MOEX rates updated successfully
+_________________1-11-2020 4:43:35 PM_________________
+
+	InfoService info|4:43:37 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|4:43:39 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|4:43:42 PM|------------ Rates update started -------------
+	InfoService info|4:43:43 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|4:43:44 PM|New rates from all sources saved successfully
+	InfoService info|4:43:44 PM|MOEX rates updated successfully
+_________________1-11-2020 5:10:39 PM_________________
+
+	InfoService info|5:10:41 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|5:10:43 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|5:10:46 PM|------------ Rates update started -------------
+	InfoService info|5:10:48 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:10:49 PM|MOEX rates updated successfully
+	InfoService error|5:10:49 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'quote' of undefined
+_________________1-11-2020 5:13:23 PM_________________
+
+	InfoService info|5:13:25 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|5:13:27 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|5:13:30 PM|------------ Rates update started -------------
+	InfoService info|5:13:33 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:13:33 PM|MOEX rates updated successfully
+	InfoService error|5:13:33 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|5:13:34 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 5:15:59 PM_________________
+
+	InfoService info|5:16:01 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|5:16:03 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|5:16:06 PM|------------ Rates update started -------------
+	InfoService info|5:16:08 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:16:09 PM|MOEX rates updated successfully
+	InfoService error|5:16:09 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|5:16:10 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 5:18:21 PM_________________
+
+	InfoService info|5:18:22 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|5:18:25 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|5:18:27 PM|------------ Rates update started -------------
+	InfoService info|5:18:29 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:18:30 PM|MOEX rates updated successfully
+	InfoService error|5:18:30 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|5:18:31 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 5:21:11 PM_________________
+
+	InfoService info|5:21:13 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|5:21:15 PM| Send message: Error: connect ECONNREFUSED 127.0.0.1:36666
+	InfoService info|5:21:18 PM|------------ Rates update started -------------
+	InfoService info|5:21:20 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:21:20 PM|MOEX rates updated successfully
+	InfoService error|5:21:21 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|5:21:21 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 5:22:16 PM_________________
+
+	InfoService info|5:22:18 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|5:22:18 PM|Notifier error: RangeError [ERR_OUT_OF_RANGE]: The value of "offset" is out of range. It must be >= 0 and <= 5. Received 6
+	InfoService info|5:22:23 PM|------------ Rates update started -------------
+	InfoService info|5:22:24 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:22:25 PM|MOEX rates updated successfully
+	InfoService error|5:22:25 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|5:22:25 PM|Notifier error: RangeError [ERR_OUT_OF_RANGE]: The value of "offset" is out of range. It must be >= 0 and <= 5. Received 6
+	InfoService error|5:22:25 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+	InfoService error|5:22:25 PM|Notifier error: RangeError [ERR_OUT_OF_RANGE]: The value of "offset" is out of range. It must be >= 0 and <= 5. Received 6
+_________________1-11-2020 5:23:47 PM_________________
+
+	InfoService info|5:23:48 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|5:23:53 PM|------------ Rates update started -------------
+	InfoService info|5:23:55 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:23:55 PM|MOEX rates updated successfully
+	InfoService error|5:23:56 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'quote' of undefined
+	InfoService error|5:23:56 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 5:26:13 PM_________________
+
+	InfoService info|5:26:15 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|5:26:20 PM|------------ Rates update started -------------
+	InfoService info|5:26:21 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:26:22 PM|MOEX rates updated successfully
+	InfoService error|5:26:22 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'toFixed' of undefined
+	InfoService error|5:26:22 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 5:27:35 PM_________________
+
+	InfoService info|5:27:37 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|5:27:42 PM|------------ Rates update started -------------
+	InfoService info|5:27:44 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:27:44 PM|MOEX rates updated successfully
+	InfoService error|5:27:45 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'toFixed' of undefined
+	InfoService error|5:27:45 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 5:28:51 PM_________________
+
+	InfoService info|5:28:52 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|5:28:57 PM|------------ Rates update started -------------
+	InfoService info|5:28:59 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:28:59 PM|MOEX rates updated successfully
+	InfoService error|5:29:00 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'base' of undefined
+	InfoService error|5:29:00 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 5:34:48 PM_________________
+
+	InfoService info|5:34:50 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|5:34:55 PM|------------ Rates update started -------------
+	InfoService info|5:34:56 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:34:57 PM|MOEX rates updated successfully
+	InfoService info|5:34:57 PM|New rates from all sources saved successfully
+	InfoService info|5:34:57 PM|CryptoCompare rates updated against USD successfully
+_________________1-11-2020 5:36:11 PM_________________
+
+	InfoService info|5:36:12 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|5:36:17 PM|------------ Rates update started -------------
+	InfoService info|5:36:19 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:36:19 PM|MOEX rates updated successfully
+	InfoService error|5:36:20 PM|Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: TypeError: Cannot read property 'USD' of undefined
+	InfoService error|5:36:20 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 5:37:34 PM_________________
+
+	InfoService info|5:37:36 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|5:37:41 PM|------------ Rates update started -------------
+	InfoService info|5:37:43 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:37:43 PM|MOEX rates updated successfully
+	InfoService info|5:37:44 PM|New rates from all sources saved successfully
+	InfoService info|5:37:44 PM|CryptoCompare rates updated against USD successfully
+_________________1-11-2020 5:39:28 PM_________________
+
+	InfoService info|5:39:30 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|5:39:35 PM|------------ Rates update started -------------
+	InfoService info|5:39:36 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|5:39:37 PM|MOEX rates updated successfully
+	InfoService info|5:39:37 PM|New rates from all sources saved successfully
+	InfoService info|5:39:37 PM|CryptoCompare rates updated against USD successfully
+_________________1-11-2020 6:08:27 PM_________________
+
+	InfoService info|6:08:29 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|6:08:34 PM|------------ Rates update started -------------
+	InfoService info|6:08:36 PM|Coinmarketcap rates updated against USD successfully
+	InfoService error|6:08:36 PM|Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.
+	InfoService info|6:08:36 PM|MOEX rates updated successfully
+_________________1-11-2020 6:08:49 PM_________________
+
+	InfoService info|6:08:50 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|6:08:55 PM|------------ Rates update started -------------
+	InfoService info|6:09:00 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|6:09:01 PM|New rates from all sources saved successfully
+	InfoService info|6:09:01 PM|MOEX rates updated successfully
+_________________1-11-2020 6:13:49 PM_________________
+
+	InfoService info|6:13:51 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|6:13:56 PM|------------ Rates update started -------------
+	InfoService info|6:13:57 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|6:13:57 PM|New rates from all sources saved successfully
+	InfoService info|6:13:57 PM|MOEX rates updated successfully
+_________________1-11-2020 6:54:17 PM_________________
+
+	InfoService info|6:54:20 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|6:54:25 PM|------------ Rates update started -------------
+	InfoService info|6:54:25 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|6:54:26 PM|New rates from all sources saved successfully
+	InfoService info|6:54:26 PM|MOEX rates updated successfully
+_________________1-11-2020 7:00:14 PM_________________
+
+	InfoService info|7:00:15 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|7:00:16 PM|Unable to process data from request to https://api.coingecko.com/api/v3/coins/list. Error: TypeError: Cannot read property 'id' of undefined
+_________________1-11-2020 7:03:19 PM_________________
+
+	InfoService info|7:03:21 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|7:03:21 PM|Coingecko coin ids fetched successfully
+_________________1-11-2020 7:12:11 PM_________________
+
+	InfoService info|7:12:13 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|7:12:13 PM|Coingecko coin ids fetched successfully
+	InfoService info|7:12:18 PM|------------ Rates update started -------------
+_________________1-11-2020 7:26:28 PM_________________
+
+	InfoService info|7:26:29 PM|ADAMANT-INFO server listening on port 36668
+	InfoService error|7:26:30 PM|Unable to get Coingecko coin ids. Try to restart InfoService or there will be no rates from Coingecko. Error: TypeError: Cannot read property 'forEach' of undefined
+	InfoService info|7:26:34 PM|------------ Rates update started -------------
+_________________1-11-2020 7:27:07 PM_________________
+
+	InfoService info|7:27:08 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|7:27:09 PM|Coingecko coin ids fetched successfully
+_________________1-11-2020 7:27:44 PM_________________
+
+	InfoService info|7:27:45 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|7:27:46 PM|Coingecko coin ids fetched successfully
+	InfoService info|7:27:50 PM|------------ Rates update started -------------
+	InfoService info|7:27:51 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|7:27:51 PM|MOEX rates updated successfully
+	InfoService error|7:27:52 PM|Unable to process data from request to api.coingecko.com. Error: TypeError: Cannot read property 'RES' of undefined
+	InfoService error|7:27:52 PM|Error: Unable to get data from Coingecko. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 7:32:54 PM_________________
+
+	InfoService info|7:32:55 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|7:32:56 PM|Coingecko coin ids fetched successfully
+	InfoService info|7:33:00 PM|------------ Rates update started -------------
+	InfoService info|7:33:01 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|7:33:02 PM|MOEX rates updated successfully
+	InfoService error|7:33:03 PM|Unable to process data from request to api.coingecko.com. Error: TypeError: Cannot read property 'RES' of undefined
+	InfoService error|7:33:03 PM|Error: Unable to get data from Coingecko. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 7:39:11 PM_________________
+
+	InfoService info|7:39:13 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|7:39:14 PM|Coingecko coin ids fetched successfully
+	InfoService info|7:39:18 PM|------------ Rates update started -------------
+	InfoService info|7:39:19 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|7:39:20 PM|MOEX rates updated successfully
+	InfoService error|7:39:20 PM|Unable to process data from request to api.coingecko.com. Error: TypeError: Cannot read property 'RES' of undefined
+	InfoService error|7:39:21 PM|Error: Unable to get data from Coingecko. InfoService will provide previous rates; historical rates wouldn't be saved.
+_________________1-11-2020 7:40:00 PM_________________
+
+	InfoService info|7:40:02 PM|ADAMANT-INFO server listening on port 36668
+	InfoService info|7:40:03 PM|Coingecko coin ids fetched successfully
+	InfoService info|7:40:07 PM|------------ Rates update started -------------
+	InfoService info|7:40:07 PM|Coinmarketcap rates updated against USD successfully
+	InfoService info|7:40:08 PM|MOEX rates updated successfully
+	InfoService error|7:40:08 PM|Unable to process data from request to api.coingecko.com. Error: TypeError: Cannot read property 'usd' of undefined
+	InfoService error|7:40:08 PM|Error: Unable to get data from Coingecko. InfoService will provide previous rates; historical rates wouldn't be saved.

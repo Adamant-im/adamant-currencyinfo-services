@@ -1,31 +1,36 @@
 const request = require('request');
 const _ = require('underscore');
-const {
-	crypto,
-	cmcApiKey
-} = require('../config.json');
+const config = require('./configReader');
+const log = require('./log');
+const notify = require('./notify');
 
 module.exports = (base, cb) => {
+
+    if (!config.crypto_cmc || config.crypto_cmc.length == 0 || !config.cmcApiKey) {
+        cb({});
+		return;
+    }
+
 	request(
-		'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', {
+		'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest', {
 			qs: {
-				start: 1,
-				limit: 5000,
+				symbol: config.crypto_cmc.join(),
 				convert: base
 			},
 			headers: {
-				'X-CMC_PRO_API_KEY': cmcApiKey
+				'X-CMC_PRO_API_KEY': config.cmcApiKey
 			},
 			json: true,
 		}, (err, res, body) => {
 			if (err) {
+				notify(`Unable to process request to pro-api.coinmarketcap.com`, 'error');
 				cb(false);
 				return;
 			}
 			try {
 				const info = body.data;
 				const data = {};
-				crypto.forEach(t => {
+				config.crypto_cmc.forEach(t => {
 					const currency = _.findWhere(info, {
 						symbol: t
 					});
@@ -33,9 +38,9 @@ module.exports = (base, cb) => {
 				});
 
 				cb(data);
-				console.log('update', base);
+				log.info(`Coinmarketcap rates updated against ${base} successfully`)
 			} catch (e) {
-				console.log('Error: ' + e);
+				notify(`Unable to process data from request to pro-api.coinmarketcap.com. Wrong Coinmarketcap API key? Error: ${e}`, 'error');
 				cb(false);
 			}
 

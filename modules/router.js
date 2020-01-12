@@ -2,7 +2,10 @@ const db = require('../db/mongodb');
 const express = require('express');
 const app = express();
 var bodyParser = require('body-parser');
-const port = require('../config.json').port;
+const config = require('../helpers/configReader');
+const log = require('../helpers/log');
+const notify = require('../helpers/notify');
+
 let tickers;
 
 app.use(bodyParser.json());
@@ -38,14 +41,17 @@ app.get('/getHistory', (req, res) => {
 		}
 	});
 });
+
 module.exports = (tickers_) => {
 	tickers = tickers_;
 };
 
-app.listen(port, () => console.info('ADAMANT-INFO server listening on port ' + port));
+app.listen(config.port, () => notify('ADAMANT-INFO server listening on port ' + config.port, 'info'));
 
 function respSuccess (data) {
-	return {
+	if (Object.entries(data).length === 0 && data.constructor === Object) // Empty object
+		return respError('No data available')
+	else return {
 		success: true,
 		date: new Date().getTime(),
 		result: data
