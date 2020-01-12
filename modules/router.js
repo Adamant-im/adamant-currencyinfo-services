@@ -46,7 +46,7 @@ module.exports = (tickers_) => {
 	tickers = tickers_;
 };
 
-app.listen(config.port, () => notify('ADAMANT-INFO server listening on port ' + config.port, 'info'));
+app.listen(config.port, () => notify('ADAMANT-INFO server is listening on port ' + config.port, 'info'));
 
 function respSuccess (data) {
 	if (Object.entries(data).length === 0 && data.constructor === Object) // Empty object
