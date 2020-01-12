@@ -15,6 +15,6 @@ try {
 }
 
 config.isDev = isDev;
-config.crypto_all = config.crypto_cmc.concat(config.crypto_cc).concat(config.crypto_cg);
+config.crypto_all = config.crypto_cmc.concat(config.crypto_cc); // Coingecko will be added in getCg module
 
 module.exports = config;

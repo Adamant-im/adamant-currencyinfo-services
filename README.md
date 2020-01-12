@@ -45,8 +45,8 @@ Parameters:
 - `cgApiKey` <string> No need for Coingecko API key. Leave it default.
 - `port` <number> Port for providing InfoServices Rates API. It will be available at http://IP:port.
 - `refreshInterval` <number> Refresh rate in minutes to fetch data from MOEX and Coinmarketcap. Note: often requests can lead to blocking of your API keys.
-* `slack` <string> Token for Slack alerts for InfoService administrator. No alerts if not set.
-* `adamant_notify` <string> ADM address to receive alerts for InfoService administrator. Recommended.
+- `slack` <string> Token for Slack alerts for InfoService administrator. No alerts if not set.
+- `adamant_notify` <string> ADM address to receive alerts for InfoService administrator. Recommended.
 - `passPhrase` <string> The secret phrase for account you want to send alerts from. Obligatory in case of you set `adamant_notify`
 - `node_ADM` <string, array> List of nodes for API work, obligatorily in case of you set `adamant_notify`
   

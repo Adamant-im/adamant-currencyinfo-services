@@ -42,6 +42,7 @@ function getCgCoinIds() {
                     }
                     config.crypto_cg_full.push(cg_crypto)
                 });
+                config.crypto_all = config.crypto_all.concat(config.crypto_cg_full.map(e => e.symbol));
                 
                 log.info(`Coingecko coin ids fetched successfully`)
 			} catch (e) {
