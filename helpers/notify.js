@@ -4,7 +4,9 @@ const log = require('./log');
 const api = require('../modules/api');
 
 module.exports = (message, type) => {
+
 	try {
+
 		log[type](message.replace(/\*/g, '').replace(/_/g, ''));
 
 		if (!config.slack && !config.adamant_notify) {
@@ -16,18 +18,16 @@ module.exports = (message, type) => {
 		case ('error'):
 			color = '#FF0000';
 			break;
-
 		case ('warn'):
 			color = '#FFFF00';
 			break;
-
 		case ('info'):
 			color = '#00FF00';
 			break;
 		case ('log'):
-			color = '#ffffff';
+			color = '#FFFFFF';
 			break;
-		}
+		}		
 		const opts = {
 			uri: config.slack,
 			method: 'POST',
@@ -41,7 +41,7 @@ module.exports = (message, type) => {
 				}]
 			}
 		};
-		if (config.slack && config.slack.length > 5) {
+		if (config.slack && config.slack.length > 35) {
 			request(opts);
 		}
 		if (config.adamant_notify && config.adamant_notify.length > 5 && config.adamant_notify.startsWith('U') && config.passPhrase && config.passPhrase.length > 30) {
