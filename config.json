@@ -2,7 +2,7 @@
 	"crypto_cmc": ["ADM", "BTC", "ETH", "DASH", "LSK", "DOGE", "BZ", "BCH", "USDT", "LTC", "TRX", "BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS", "USDS"],
 	"crypto_cc": [],
 	"crypto_cg": [],
-	"crypto_cg_coinids": ["resfinex-token"],
+	"crypto_cg_coinids": ["resfinex-token", "vinx-coin"],
 	"baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH"],
 	"fiat": {
 		"USD/RUB": "USDRUB_TOM",
