@@ -1,6 +1,7 @@
 ADAMANT InfoServices is a crypto and fiat currency rates service provider. It collects rates from MOEX, Coinmarketcap, CryptoCompare and Coingecko and calculates cross-rates, and provides information via API.
 
 Features:
+
 - Collects rates from MOEX for fiat tickers
 - Collects rates from Coinmarketcap for crypto tickers
 - Collects rates from CryptoCompare for crypto tickers
@@ -15,12 +16,15 @@ Features:
 - Free use for any purposes
 
 # Installation
+
 ## Requirements
-- Ubuntu 16 / Ubuntu 18 (other OS had not been tested)
-- NodeJS v 8+ (already installed if you have a node on your machine)
+
+- Ubuntu 16 / Ubuntu 18 (we didn't test with others)
+- NodeJS v 8+
 - MongoDB ([installation instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/))
 
 ## Setup
+
 ```
 su - adamant
 git clone https://github.com/Adamant-im/adamant-currencyinfo-services
@@ -29,12 +33,14 @@ npm i
 ```
 
 ## Pre-launch tuning
+
 ```
 nano config.json
 ```
 
 Parameters:
-- `crypto_cmc` <array> List of coins to fetch rates from Coincarketcap
+
+- `crypto_cmc` <array> List of coins to fetch rates from Coinmarketcap
 - `crypto_cc` <array> List of coins to fetch rates from Cryptocompare
 - `crypto_cg` <array> List of coins to fetch rates from Coingecko. Better use `crypto_cg_coinids`.
 - `crypto_cg_coinids` <array> List of Coingecko coin Ids to fetch rates from Coingecko. Used when one coin symbol is used for different coins. Coin ids can be seen on https://api.coingecko.com/api/v3/coins/list.
@@ -49,20 +55,23 @@ Parameters:
 - `adamant_notify` <string> ADM address to receive alerts for InfoService administrator. Recommended.
 - `passPhrase` <string> The secret phrase for account you want to send alerts from. Obligatory in case of you set `adamant_notify`
 - `node_ADM` <string, array> List of nodes for API work, obligatorily in case of you set `adamant_notify`
-  
 
 ## Launching
+
 You can start ADAMANT InfoServices with `node app` command, but it is recommended to use process manager:
+
 ```
-pm2 start --name info-service app.js 
+pm2 start --name info-service app.js
 ```
 
-## Add info-service to cron:
+## Add info-service to cron
+
 ```
 crontab -e
 ```
 
 Add string:
+
 ```
 @reboot cd /home/adamant/adamant-currencyinfo-services && pm2 start --name info-service app.js
 ```

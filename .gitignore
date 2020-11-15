@@ -1,3 +1,6 @@
 node_modules/
 logs/
+.vscode/
 config.test
+package-lock.json
+tests.js
