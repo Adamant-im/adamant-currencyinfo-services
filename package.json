@@ -16,6 +16,6 @@
     "micex.api": "zyuhel/micex.api#2e48988",
     "mongodb": "^3.1.13",
     "request": "^2.88.0",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   }
 }
