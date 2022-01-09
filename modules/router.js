@@ -10,7 +10,7 @@ let tickers;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: true
+  extended: true,
 }));
 
 app.get('/get', (req, res) => {
@@ -34,7 +34,7 @@ app.get('/get', (req, res) => {
 
 app.get('/getHistory', (req, res) => {
   db.getHistory(req.query, (h, msg) => {
-    if (h){
+    if (h) {
       res.json(respSuccess(h));
     } else {
       res.json(respError(msg));
@@ -48,19 +48,21 @@ module.exports = (tickers_) => {
 
 app.listen(config.port, () => notify('ADAMANT-INFO server is listening on port ' + config.port, 'info'));
 
-function respSuccess (data) {
-  if (Object.entries(data).length === 0 && data.constructor === Object) // Empty object
-    return respError('No data available')
-  else return {
-    success: true,
-    date: new Date().getTime(),
-    result: data
-  };
+function respSuccess(data) {
+  if (Object.entries(data).length === 0 && data.constructor === Object) { // Empty object
+    return respError('No data available');
+  } else {
+    return {
+      success: true,
+      date: new Date().getTime(),
+      result: data,
+    };
+  }
 }
-function respError (msg) {
+function respError(msg) {
   return {
     success: false,
     date: new Date().getTime(),
-    msg
+    msg,
   };
 }

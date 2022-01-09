@@ -32,7 +32,7 @@ module.exports = (cb) => {
         }
       });
       cb(data);
-      log.info(`MOEX rates updated successfully`)
+      log.info(`MOEX rates updated successfully`);
     } catch (e) {
       notify(`Unable to process request to iss.moex.com. Error: ${e}`, 'error');
       cb(false);
