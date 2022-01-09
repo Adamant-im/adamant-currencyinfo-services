@@ -4,6 +4,11 @@
   "description": "Crypto and fiat currency rates service provider. MOEX, Coinmarketcap, CryptoCompare and Coingecko.",
   "main": "index.js",
   "scripts": {
+    "lint": "npx eslint -f visualstudio .",
+    "lint:fix": "npx eslint -f visualstudio --fix",
+    "lint:fixrule": "npx eslint -f visualstudio --no-eslintrc --fix --env node,es2021,commonjs --parser-options=ecmaVersion:12 --rule",
+    "start": "node app.js",
+    "start:dev": "node app.js dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -44,6 +49,13 @@
     "mongodb": "^3.1.13",
     "request": "^2.88.0",
     "underscore": "^1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.1"
   },
   "repository": {
     "type": "git",

@@ -5,13 +5,13 @@ const isDev = process.argv.includes('dev');
 let config = {};
 
 try {
-	if (isDev) {
-		config = JSON.parse(jsonminify(fs.readFileSync('./config.test', 'utf-8')));
-	} else {
-		config = JSON.parse(jsonminify(fs.readFileSync('./config.json', 'utf-8')));
-	}
+  if (isDev) {
+    config = JSON.parse(jsonminify(fs.readFileSync('./config.test', 'utf-8')));
+  } else {
+    config = JSON.parse(jsonminify(fs.readFileSync('./config.json', 'utf-8')));
+  }
 } catch (e) {
-	log.error('Error reading config: ' + e);
+  log.error('Error reading config: ' + e);
 }
 
 config.isDev = isDev;
