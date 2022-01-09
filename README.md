@@ -19,8 +19,8 @@ Features:
 
 ## Requirements
 
-- Ubuntu 16 / Ubuntu 18 (we didn't test with others)
-- NodeJS v 8+
+- Ubuntu 18 / 20 (we didn't test with others)
+- NodeJS v12+
 - MongoDB ([installation instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/))
 
 ## Setup

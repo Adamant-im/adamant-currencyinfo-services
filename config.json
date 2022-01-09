@@ -1,8 +1,9 @@
 {
-	"crypto_cmc": ["ADM", "BTC", "ETH", "DASH", "LSK", "DOGE", "BZ", "BCH", "USDT", "LTC", "TRX", "BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS", "USDS"],
+	"crypto_cmc": ["BTC", "ETH", "DASH", "LSK", "DOGE", "BZ", "BCH", "USDT", "LTC", "TRX", 
+		"BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS", "USDS"],
 	"crypto_cc": [],
 	"crypto_cg": [],
-	"crypto_cg_coinids": ["resfinex-token", "vinx-coin"],
+	"crypto_cg_coinids": ["adamant-messenger", "resfinex-token"],
 	"baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH"],
 	"fiat": {
 		"USD/RUB": "USDRUB_TOM",
@@ -16,8 +17,8 @@
 	"cgApiKey": "No need for Coingecko API key",
 	"port": 36668,
 	"refreshInterval": 10,
-	"slack": "https://hooks.slack.com/services/",
-    "adamant_notify": "",
+	"slack": "https://hooks.slack.com/services/..",
+  "adamant_notify": "",
 	"passPhrase": "joy logic job estate kite",
 	"node_ADM": [
 		"http://localhost:36666",
