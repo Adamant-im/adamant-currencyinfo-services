@@ -6,7 +6,7 @@ const notify = require('./notify');
 
 module.exports = (base, cb) => {
 
-  if (!config.crypto_cc || config.crypto_cc.length == 0 || !config.ccApiKey) {
+  if (!config.crypto_cc || config.crypto_cc.length === 0 || !config.ccApiKey) {
     cb({});
     return;
   }
@@ -28,7 +28,7 @@ module.exports = (base, cb) => {
         try {
           const info = body;
           const data = {};
-          config.crypto_cc.forEach(t => {
+          config.crypto_cc.forEach((t) => {
             data[t + '/' + base] = +info[t][base].toFixed(8);
           });
 

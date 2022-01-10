@@ -1,7 +1,7 @@
 const db = require('../db/mongodb');
 const express = require('express');
 const app = express();
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const config = require('../helpers/configReader');
 const log = require('../helpers/log');
 const notify = require('../helpers/notify');
@@ -24,9 +24,9 @@ app.get('/get', (req, res) => {
     if (~coins.indexOf(',')) {
       arrCoins = coins.split(',');
     }
-    arrCoins.forEach(coin => {
-      const filteredMarkets = Object.keys(tickers).filter(c => ~c.indexOf(coin.trim()));
-      filteredMarkets.forEach(c => filterredTickers[c] = tickers[c]);
+    arrCoins.forEach((coin) => {
+      const filteredMarkets = Object.keys(tickers).filter((c) => ~c.indexOf(coin.trim()));
+      filteredMarkets.forEach((c) => filterredTickers[c] = tickers[c]);
     });
     res.json(respSuccess(filterredTickers));
   }

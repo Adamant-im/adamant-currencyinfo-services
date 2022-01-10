@@ -71,7 +71,7 @@ setInterval(refresh, config.refreshInterval * 60000);
 function converter(tickers) {
   config.baseCoins.forEach((b) => {
     const price = tickers['USD/' + b] || 1 / tickers[b + '/USD'];
-    if (!price) {return;}
+    if (!price) return;
     config.crypto_all.forEach((c) => {
       const priceAlt = 1 / tickers[c + '/USD'];
       tickers[c + '/' + b] = +(price / priceAlt).toFixed(8);

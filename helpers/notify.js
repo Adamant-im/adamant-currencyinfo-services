@@ -15,19 +15,19 @@ module.exports = (message, type) => {
 
     let color;
     switch (type) {
-    case ('error'):
-      color = '#FF0000';
-      break;
-    case ('warn'):
-      color = '#FFFF00';
-      break;
-    case ('info'):
-      color = '#00FF00';
-      break;
-    case ('log'):
-      color = '#FFFFFF';
-      break;
-    }    
+      case ('error'):
+        color = '#FF0000';
+        break;
+      case ('warn'):
+        color = '#FFFF00';
+        break;
+      case ('info'):
+        color = '#00FF00';
+        break;
+      case ('log'):
+        color = '#FFFFFF';
+        break;
+    }
     const opts = {
       uri: config.slack,
       method: 'POST',
@@ -37,9 +37,9 @@ module.exports = (message, type) => {
           'fallback': message,
           'color': color,
           'text': message,
-          'mrkdwn_in': ['text']
-        }]
-      }
+          'mrkdwn_in': ['text'],
+        }],
+      },
     };
     if (config.slack && config.slack.length > 35) {
       request(opts);

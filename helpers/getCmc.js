@@ -6,7 +6,7 @@ const notify = require('./notify');
 
 module.exports = (base, cb) => {
 
-  if (!config.crypto_cmc || config.crypto_cmc.length == 0 || !config.cmcApiKey) {
+  if (!config.crypto_cmc || config.crypto_cmc.length === 0 || !config.cmcApiKey) {
     cb({});
     return;
   }
@@ -15,10 +15,10 @@ module.exports = (base, cb) => {
       'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest', {
         qs: {
           symbol: config.crypto_cmc.join(),
-          convert: base
+          convert: base,
         },
         headers: {
-          'X-CMC_PRO_API_KEY': config.cmcApiKey
+          'X-CMC_PRO_API_KEY': config.cmcApiKey,
         },
         json: true,
       }, (err, res, body) => {
@@ -30,15 +30,15 @@ module.exports = (base, cb) => {
         try {
           const info = body.data;
           const data = {};
-          config.crypto_cmc.forEach(t => {
+          config.crypto_cmc.forEach((t) => {
             const currency = _.findWhere(info, {
-              symbol: t
+              symbol: t,
             });
             data[t + '/' + base] = +currency.quote[base].price.toFixed(8);
           });
 
           cb(data);
-          log.info(`Coinmarketcap rates updated against ${base} successfully`)
+          log.info(`Coinmarketcap rates updated against ${base} successfully`);
         } catch (e) {
           notify(`Unable to process data from request to pro-api.coinmarketcap.com. Wrong Coinmarketcap API key? Error: ${e}`, 'error');
           cb(false);
