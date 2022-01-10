@@ -55,6 +55,7 @@ Parameters:
 - `adamant_notify` <string> ADM address to receive alerts for InfoService administrator. Recommended.
 - `passPhrase` <string> The secret phrase for account you want to send alerts from. Obligatory in case of you set `adamant_notify`
 - `node_ADM` <string, array> List of nodes for API work, obligatorily in case of you set `adamant_notify`
+- `log_level` <string> The software will use verbosity according to `log_level`. It can be `none` < `error` < `warn` < `info` < `log`.
 
 ## Launching
 
