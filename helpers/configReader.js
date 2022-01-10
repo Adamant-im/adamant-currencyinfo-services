@@ -4,13 +4,13 @@ const isDev = process.argv.includes('dev');
 let config = {};
 
 try {
+
   if (isDev) {
     config = JSON.parse(jsonminify(fs.readFileSync('./config.test', 'utf-8')));
   } else {
     config = JSON.parse(jsonminify(fs.readFileSync('./config.json', 'utf-8')));
   }
 
-  config.notifyName = `${config.bot_name} (${config.address})`;
   config.version = require('../package.json').version;
   config.isDev = isDev;
   config.crypto_all = config.crypto_cmc.concat(config.crypto_cc); // Also, Coingecko coins will be added in getCg module

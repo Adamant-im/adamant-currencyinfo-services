@@ -42,7 +42,7 @@
   "author": "ADAMANT Dev Team, Aleksei Lebedev <devs@adamant.im> (https://adamant.im)",
   "license": "GPL-3.0",
   "dependencies": {
-    "adamant-api": "^0.1.22",
+    "axios": "^0.24.0",
     "body-parser": "^1.18.3",
     "jsonminify": "^0.4.1",
     "express": "^4.16.4",

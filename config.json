@@ -17,19 +17,6 @@
   "cgApiKey": "No need for Coingecko API key",
   "port": 36668,
   "refreshInterval": 10,
-  "slack": "https://hooks.slack.com/services/..",
-  "adamant_notify": "",
-  "passPhrase": "joy logic job estate kite",
-  "node_ADM": [
-    "http://localhost:36666",
-    "https://endless.adamant.im",
-    "https://clown.adamant.im",
-    "https://bid.adamant.im",
-    "https://unusual.adamant.im",
-    "https://debate.adamant.im",
-    "http://185.231.245.26:36666",
-    "http://80.211.177.181:36666",
-    "https://lake.adamant.im"
-  ],
+  "slack": ["https://hooks.slack.com/services/.."],
 	"log_level": "log"
 }
