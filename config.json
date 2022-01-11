@@ -1,9 +1,11 @@
 {
-  "crypto_cmc": ["BTC", "ETH", "DASH", "LSK", "DOGE", "BZ", "BCH", "USDT", "LTC", "TRX", 
+  "crypto_cmc": ["BTC", "ETH", "DASH", "LSK", "DOGE", "BCH", "USDT", "LTC", "TRX", "ADM",
     "BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS", "USDS"],
-  "crypto_cc": [],
+  "crypto_cc": ["BTC", "ETH", "DASH", "LSK", "DOGE", "BCH", "USDT", "LTC", "TRX", "ADM",
+    "BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS", "USDS"],
   "crypto_cg": [],
-  "crypto_cg_coinids": ["adamant-messenger", "resfinex-token"],
+  "crypto_cg_coinids": ["bitcoin", "ethereum", "dash", "lisk", "dogecoin", "tether", "litecoin", "adamant-messenger",
+		"binancecoin", "ethereum-classic", "usd-coin", "true-usd", "stableusd", "resfinex-token"],
   "baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH"],
   "fiat": {
     "USD/RUB": "USDRUB_TOM",
