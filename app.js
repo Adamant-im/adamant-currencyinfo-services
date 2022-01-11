@@ -23,7 +23,6 @@ function refresh() {
 
   CurrencyApi((data) => {
     if (data) {
-      console.log(tickers);
       tickersInfo = mergeData({}, data, 'Null', 'CurrencyApi');
       if (tickersInfo.isAlert) {
         notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
