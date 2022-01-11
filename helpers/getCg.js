@@ -1,4 +1,5 @@
 const request = require('request');
+const axios = require('axios');
 const _ = require('underscore');
 const config = require('./configReader');
 const log = require('./log');
@@ -7,26 +8,15 @@ const notify = require('./notify');
 function getCgCoinIds() {
 
   config.crypto_cg_full = [];
+  if (!config.isCg) return;
 
-  if (
-    (!config.crypto_cg || config.crypto_cg.length === 0) &&
-    (!config.crypto_cg_coinids || config.crypto_cg_coinids.length === 0)
-  ) {
-    return;
-  }
-
-  request(
-      'https://api.coingecko.com/api/v3/coins/list', {
-        json: true,
-      }, (err, res, body) => {
-        if (err) {
-          notify(`Unable to get Coingecko coin ids. Try to restart InfoService or there will be no rates from Coingecko.`, 'error');
-          return;
-        }
+  const url = 'https://api.coingecko.com/api/v3/coins/list';
+  axios.get(url)
+      .then(function(response) {
         try {
-          const info = body;
+          const data = response.data;
           config.crypto_cg.forEach((t) => {
-            const currency = _.findWhere(info, {
+            const currency = _.findWhere(data, {
               symbol: t.toLowerCase(),
             });
             cg_crypto = {
@@ -36,7 +26,7 @@ function getCgCoinIds() {
             config.crypto_cg_full.push(cg_crypto);
           });
           config.crypto_cg_coinids.forEach((t) => {
-            const currency = _.findWhere(info, {
+            const currency = _.findWhere(data, {
               id: t,
             });
             cg_crypto = {
@@ -46,13 +36,14 @@ function getCgCoinIds() {
             config.crypto_cg_full.push(cg_crypto);
           });
           config.crypto_all = config.crypto_all.concat(config.crypto_cg_full.map((e) => e.symbol));
-          log.info(`Coingecko coin ids fetched successfully`);
+          log.log(`Coingecko coin ids fetched successfully`);
         } catch (e) {
-          notify(`Unable to get Coingecko coin ids. Try to restart InfoService or there will be no rates from Coingecko. Error: ${e}`, 'error');
+          notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Unable to get Coingecko coin ids. Try to restart InfoService or there will be no rates from Coingecko. Error: ${e}`, 'error');
         }
-
+      })
+      .catch(function(error) {
+        notify(`Request to ${url} failed with ${error.response?.status} status code, ${error.toString()}. Unable to get Coingecko coin ids. Try to restart InfoService or there will be no rates from Coingecko.`, 'error');
       });
-
 }
 
 getCgCoinIds();
