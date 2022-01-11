@@ -12,6 +12,7 @@ try {
   }
 
   config.isCc = config.crypto_cc && config.crypto_cc.length !== 0 && config.ccApiKey;
+  config.isCmc = config.crypto_cmc && config.crypto_cmc.length !== 0 && config.cmcApiKey;
   config.version = require('../package.json').version;
   config.isDev = isDev;
   config.crypto_all = config.crypto_cmc.concat(config.crypto_cc); // Also, Coingecko coins will be added in getCg module

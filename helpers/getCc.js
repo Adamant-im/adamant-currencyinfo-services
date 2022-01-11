@@ -34,7 +34,7 @@ module.exports = (base, cb) => {
         }
       })
       .catch(function(error) {
-        notify(`Request to ${url} ${JSON.stringify(params)} failed with ${error.response?.status} status code, ${error.toString()}${error.response?.data ? '. Message: ' + error.response.data.toString().trim() : ''}.`, 'error');
+        notify(`Request to ${url} ${JSON.stringify(params)} failed with ${error.response?.status} status code, ${error.toString()}${error.response?.data ? '. Message: ' + JSON.stringify(error.response.data) : ''}.`, 'error');
         cb(false);
       });
 };
