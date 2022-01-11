@@ -1,33 +1,20 @@
-const log = require('../helpers/log');
 const MongoClient = require('mongodb').MongoClient;
-
-const mongoClient = new MongoClient('mongodb://localhost:27017/', {
-  useNewUrlParser: true,
-});
+const mongoClient = new MongoClient('mongodb://localhost:27017/', { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 3000 });
+const log = require('../helpers/log');
 
 let TickersDB;
 
-mongoClient.connect((err, client) => {
-  if (err) {
-    throw (err);
+mongoClient.connect((error, client) => {
+
+  if (error) {
+    log.error(`Unable to connect to MongoBD, ` + error);
+    process.exit(-1);
   }
   const db = client.db('tickersdb');
   TickersDB = db.collection('tickers');
+  log.log(`InfoService successfully connected to 'tradebotdb' MongoDB.`);
+
 });
-
-// module.exports.save = (tickers, cb) => {
-//   TickersDB.insertOne({
-//     date: new Date().getTime(),
-//     tickers
-//   }, (err, result) => {
-//     if (err){
-//       cb(false);
-//     } else {
-//       cb(result);
-//     }
-//   });
-// };
-
 
 module.exports.save = (tickers) => {
   TickersDB.insertOne({
@@ -81,6 +68,6 @@ module.exports.getHistory = (params, cb) => {
         });
   } catch (e) {
     cb(false, e);
-    log.error('Error at getHistory: ', params, e);
+    log.error('Error at getHistory(): ', params, e);
   }
 };

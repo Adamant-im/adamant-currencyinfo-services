@@ -1,4 +1,3 @@
-const request = require('request');
 const axios = require('axios');
 const _ = require('underscore');
 const config = require('./configReader');
