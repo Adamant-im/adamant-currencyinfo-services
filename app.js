@@ -13,7 +13,6 @@ let fetchedAll;
 let tickers = {};
 let tickersInfo;
 const RATE_DIFFERENCE_PERCENT_THRESHOLD = 20;
-router(tickers);
 
 function refresh() {
 
@@ -80,6 +79,7 @@ function refresh() {
           if (fetchedAll) {
             try {
               db.save(tickers);
+              router(Object.assign({}, tickers));
               log.info('Rates from all sources saved successfully');
             } catch (e) {
               notify(`Error: Unable to save new rates in history database: ${e}`, 'error');

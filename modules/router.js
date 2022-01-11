@@ -6,7 +6,7 @@ const config = require('../helpers/configReader');
 const log = require('../helpers/log');
 const notify = require('../helpers/notify');
 
-let tickers;
+let tickers = {};
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
