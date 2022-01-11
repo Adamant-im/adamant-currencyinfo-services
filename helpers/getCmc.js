@@ -34,8 +34,8 @@ module.exports = (base, cb) => {
             });
             rates[t + '/' + base] = +currency.quote[base].price.toFixed(8);
           });
-          cb(rates);
           log.log(`Coinmarketcap rates updated against ${base} successfully`);
+          cb(rates);
         } catch (e) {
           notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Wrong Coinmarketcap API key? Error: ${e}`, 'error');
           cb(false);

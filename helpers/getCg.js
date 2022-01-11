@@ -70,8 +70,8 @@ module.exports = (base, cb) => {
           config.crypto_cg_full.forEach((t) => {
             rates[t['symbol'] + '/' + base] = +data[t['cg_id']][base.toLowerCase()].toFixed(8);
           });
-          cb(rates);
           log.log(`Coingecko rates updated against ${base} successfully`);
+          cb(rates);
         } catch (e) {
           notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url} ${JSON.stringify(params)}. Error: ${e}`, 'error');
           cb(false);

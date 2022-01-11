@@ -29,8 +29,8 @@ module.exports = (cb) => {
               rates[market] = +price.toFixed(8);
             }
           });
-          cb(rates);
           log.log(`MOEX rates updated successfully`);
+          cb(rates);
         } catch (e) {
           notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Error: ${e}`, 'error');
           cb(false);

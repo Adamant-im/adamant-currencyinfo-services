@@ -26,8 +26,8 @@ module.exports = (base, cb) => {
           config.crypto_cc.forEach((t) => {
             rates[t + '/' + base] = +data[t][base].toFixed(8);
           });
-          cb(rates);
           log.log(`CryptoCompare rates updated against ${base} successfully`);
+          cb(rates);
         } catch (e) {
           notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url} ${JSON.stringify(params)}. Wrong CryptoCompare API key? Error: ${e}`, 'error');
           cb(false);
