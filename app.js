@@ -1,4 +1,5 @@
 const Moex = require('./helpers/getMoex');
+const CurrencyApi = require('./helpers/getCurrencyApi');
 const Cmc = require('./helpers/getCmc');
 const Cc = require('./helpers/getCc');
 const Cg = require('./helpers/getCg');
@@ -19,9 +20,9 @@ function refresh() {
   log.log('Updating rates…');
   fetchedAll = true;
 
-  Cmc('USD', (data) => {
+  CurrencyApi((data) => {
     if (data) {
-      tickersInfo = mergeData(tickers, data, 'Null', 'Cmc');
+      tickersInfo = mergeData(tickers, data, 'Null', 'CurrencyApi');
       if (tickersInfo.isAlert) {
         notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
         fetchedAll = false;
@@ -30,12 +31,12 @@ function refresh() {
       }
     } else {
       fetchedAll = false;
-      notify(`Error: Unable to get data from Coinmarketcap. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
+      notify(`Error: Unable to get data from CurrencyApi. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
     }
 
-    Moex((data) => {
+    Cmc('USD', (data) => {
       if (data) {
-        tickersInfo = mergeData(tickers, data, 'Cmc', 'Moex');
+        tickersInfo = mergeData(tickers, data, 'CurrencyApi', 'Cmc');
         if (tickersInfo.isAlert) {
           notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
           fetchedAll = false;
@@ -44,12 +45,12 @@ function refresh() {
         }
       } else {
         fetchedAll = false;
-        notify(`Error: Unable to get data from MOEX. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
+        notify(`Error: Unable to get data from Coinmarketcap. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
       }
 
-      Cc('USD', (data) => {
+      Moex((data) => {
         if (data) {
-          tickersInfo = mergeData(tickers, data, 'Cmc+Moex', 'Cc');
+          tickersInfo = mergeData(tickers, data, 'CurrencyApi+Cmc', 'Moex');
           if (tickersInfo.isAlert) {
             notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
             fetchedAll = false;
@@ -58,12 +59,12 @@ function refresh() {
           }
         } else {
           fetchedAll = false;
-          notify(`Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
+          notify(`Error: Unable to get data from MOEX. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
         }
 
-        Cg('USD', (data) => {
+        Cc('USD', (data) => {
           if (data) {
-            tickersInfo = mergeData(tickers, data, 'Cmc+Moex+Cc', 'Cg');
+            tickersInfo = mergeData(tickers, data, 'CurrencyApi+Cmc+Moex', 'Cc');
             if (tickersInfo.isAlert) {
               notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
               fetchedAll = false;
@@ -72,23 +73,38 @@ function refresh() {
             }
           } else {
             fetchedAll = false;
-            notify(`Error: Unable to get data from Coingecko. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
+            notify(`Error: Unable to get data from CryptoCompare. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
           }
 
-          converter(tickers);
-          if (fetchedAll) {
-            try {
-              db.save(tickers);
-              router(Object.assign({}, tickers));
-              log.info('Rates from all sources saved successfully');
-            } catch (e) {
-              notify(`Error: Unable to save new rates in history database: ${e}`, 'error');
+          Cg('USD', (data) => {
+            if (data) {
+              tickersInfo = mergeData(tickers, data, 'CurrencyApi+Cmc+Moex+Cc', 'Cg');
+              if (tickersInfo.isAlert) {
+                notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
+                fetchedAll = false;
+              } else {
+                tickers = tickersInfo.merged;
+              }
+            } else {
+              fetchedAll = false;
+              notify(`Error: Unable to get data from Coingecko. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
             }
-          }
-        }); // Coingecko
-      }); // Cryptocompare
-    }); // Moex
-  }); // Coinmarketcap
+
+            converter(tickers);
+            if (fetchedAll) {
+              try {
+                db.save(tickers);
+                router(Object.assign({}, tickers));
+                log.info('Rates from all sources saved successfully');
+              } catch (e) {
+                notify(`Error: Unable to save new rates in history database: ${e}`, 'error');
+              }
+            }
+          }); // Coingecko
+        }); // Cryptocompare
+      }); // Moex
+    }); // Coinmarketcap
+  }); // CurrencyApi
 
 } // refresh
 
