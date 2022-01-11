@@ -11,6 +11,7 @@ try {
     config = JSON.parse(jsonminify(fs.readFileSync('./config.json', 'utf-8')));
   }
 
+  config.isCc = config.crypto_cc && config.crypto_cc.length !== 0 && config.ccApiKey;
   config.version = require('../package.json').version;
   config.isDev = isDev;
   config.crypto_all = config.crypto_cmc.concat(config.crypto_cc); // Also, Coingecko coins will be added in getCg module
