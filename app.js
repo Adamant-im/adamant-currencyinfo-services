@@ -19,10 +19,12 @@ function refresh() {
 
   log.log('Updating rates…');
   fetchedAll = true;
+  tickers = {};
 
   CurrencyApi((data) => {
     if (data) {
-      tickersInfo = mergeData(tickers, data, 'Null', 'CurrencyApi');
+      console.log(tickers);
+      tickersInfo = mergeData({}, data, 'Null', 'CurrencyApi');
       if (tickersInfo.isAlert) {
         notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
         fetchedAll = false;
