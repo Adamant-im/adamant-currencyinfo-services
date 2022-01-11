@@ -6,14 +6,15 @@ Features:
 - Collects rates from Coinmarketcap for crypto tickers
 - Collects rates from CryptoCompare for crypto tickers
 - Collects rates from Coingecko for crypto tickers
+- Reliable: uses different sources for one coin, and notifies about significant deviation
 - Minimum API calls. Free API keys fit.
-- Notifications in case of errors to ADAMANT and Slack
+- Notifications in case of errors to Slack
 - Stores history on server, no need to make additional request
-- Easy setup, settings in config file
+- Easy setup, settings are in a config file
 - Provides [RESTful API](https://github.com/Adamant-im/adamant-currencyinfo-services/wiki/InfoServices-API-documentation)
-- Fast and low hardware requirements
+- It is fast; low hardware requirements
 - Open source
-- Free use for any purposes
+- Free to use for any purposes
 
 # Installation
 

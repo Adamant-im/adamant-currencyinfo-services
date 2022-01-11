@@ -12,7 +12,7 @@ mongoClient.connect((error, client) => {
   }
   const db = client.db('tickersdb');
   TickersDB = db.collection('tickers');
-  log.log(`InfoService successfully connected to 'tradebotdb' MongoDB.`);
+  log.log(`InfoService successfully connected to 'tickersdb' MongoDB.`);
 
 });
 
