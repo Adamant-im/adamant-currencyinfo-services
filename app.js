@@ -13,7 +13,7 @@ let fetchedAll;
 
 let tickers = {};
 let tickersInfo;
-const RATE_DIFFERENCE_PERCENT_THRESHOLD = 20;
+const RATE_DIFFERENCE_PERCENT_THRESHOLD = 25;
 
 function refresh() {
 
