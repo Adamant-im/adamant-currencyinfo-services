@@ -1,6 +1,6 @@
 {
   "name": "adamant-currencyinfo-services",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "description": "Crypto and fiat currency rates service provider. MOEX, Coinmarketcap, CryptoCompare and Coingecko.",
   "main": "index.js",
   "scripts": {

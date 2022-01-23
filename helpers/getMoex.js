@@ -37,7 +37,12 @@ module.exports = (cb) => {
         }
       })
       .catch(function(error) {
-        notify(`Request to ${url} failed with ${error.response?.status} status code, ${error.toString()}${error.response?.data ? '. Message: ' + JSON.stringify(error.response.data) : ''}.`, 'error');
-        cb(false);
+        if (error.toString().includes('decryption failed or bad record mac')) {
+          log.warn(`Request to MOEX ${url} failed: ${error.toString()}. Retrying…`);
+          return module.exports(cb);
+        } else {
+          notify(`Request to ${url} failed with ${error.response?.status} status code, ${error.toString()}${error.response?.data ? '. Message: ' + JSON.stringify(error.response.data) : ''}.`, 'error');
+          cb(false);
+        }
       });
 };
