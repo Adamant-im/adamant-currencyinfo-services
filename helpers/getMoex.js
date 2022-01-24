@@ -12,20 +12,20 @@ module.exports = (cb) => {
       .then(function(response) {
         try {
           const rates = {};
-          const data = response.data.securities.data;
-          Object.keys(config.fiat).forEach((m) => {
-            const code = config.fiat[m];
-            const c = _.findWhere(data, {
+          const data = response.data.securities.data.filter((tickerData) => tickerData[1] === 'CETS');
+          Object.keys(config.fiat).forEach((pair) => {
+            const code = config.fiat[pair];
+            const tickerData = _.findWhere(data, {
               2: code,
             });
-            let price = (c[14] + c[15]) / 2;
-            if (m === 'JPY/RUB') price /= 100;
-            rates[m] = +price.toFixed(8);
-            if (m === 'USD/RUB') {
+            let price = (tickerData[14] + tickerData[15]) / 2;
+            if (pair === 'JPY/RUB') price /= 100;
+            rates[pair] = +price.toFixed(8);
+            if (pair === 'USD/RUB') {
               rates['RUB/USD'] = +(1 / rates['USD/RUB']).toFixed(8);
             } else {
-              const market = 'USD/' + m.replace('/RUB', '');
-              const price = rates['USD/RUB'] / rates[m];
+              const market = 'USD/' + pair.replace('/RUB', '');
+              const price = rates['USD/RUB'] / rates[pair];
               rates[market] = +price.toFixed(8);
             }
           });
