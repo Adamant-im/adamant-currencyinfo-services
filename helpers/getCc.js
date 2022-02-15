@@ -1,43 +1,40 @@
-const request = require('request');
-const _ = require('underscore');
+const axios = require('axios');
 const config = require('./configReader');
 const log = require('./log');
 const notify = require('./notify');
 
+const url = 'https://min-api.cryptocompare.com/data/pricemulti';
+
 module.exports = (base, cb) => {
 
-    if (!config.crypto_cc || config.crypto_cc.length == 0 || !config.ccApiKey) {
-        cb({});
-		return;
-    }
+  if (!config.isCc) {
+    cb({});
+    return;
+  }
 
-	request(
-		'https://min-api.cryptocompare.com/data/pricemulti', {
-			qs: {
-				fsyms: config.crypto_cc.join(),
-				tsyms: base,
-                api_key: config.ccApiKey
-			},
-			json: true,
-		}, (err, res, body) => {
-			if (err) {
-				notify(`Unable to process request to min-api.cryptocompare.com`, 'error');
-				cb(false);
-				return;
-			}
-			try {
-                const info = body;
-				const data = {}; 
-				config.crypto_cc.forEach(t => {
-					data[t + '/' + base] = +info[t][base].toFixed(8);
-				});
+  const params = {
+    fsyms: config.crypto_cc.join(),
+    tsyms: base,
+    api_key: config.ccApiKey,
+  };
 
-				cb(data);
-				log.info(`CryptoCompare rates updated against ${base} successfully`)
-			} catch (e) {
-				notify(`Unable to process data from request to min-api.cryptocompare.com. Wrong CryptoCompare API key? Error: ${e}`, 'error');
-				cb(false);
-			}
-
-		});
+  axios.get(url, { params })
+      .then(function(response) {
+        try {
+          const data = response.data;
+          const rates = {};
+          config.crypto_cc.forEach((t) => {
+            rates[t + '/' + base] = +data[t][base].toFixed(8);
+          });
+          log.log(`CryptoCompare rates updated against ${base} successfully`);
+          cb(rates);
+        } catch (e) {
+          notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url} ${JSON.stringify(params)}. Wrong CryptoCompare API key? Error: ${e}`, 'error');
+          cb(false);
+        }
+      })
+      .catch(function(error) {
+        notify(`Request to ${url} ${JSON.stringify(params)} failed with ${error.response?.status} status code, ${error.toString()}${error.response?.data ? '. Message: ' + JSON.stringify(error.response.data) : ''}.`, 'error');
+        cb(false);
+      });
 };
