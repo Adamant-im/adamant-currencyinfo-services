@@ -12,8 +12,9 @@
     "EUR/RUB": "EURRUB_TOM",
     "GBR/RUB": "GBPRUB_TOM",
     "CNY/RUB": "CNYRUB_TOM",
-    "JPY/RUB": "JPYRUB_TOD"
+    "JPY/RUB": "JPYRUB_TOM"
   },
+  "rateDifferencePercentThreshold": 25,
   "cmcApiKey": "Put yours Coinmarketcap API key",
   "ccApiKey": "Put yours CryptoCompare API key",
   "cgApiKey": "No need for Coingecko API key",

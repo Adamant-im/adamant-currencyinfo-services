@@ -13,7 +13,6 @@ let fetchedAll;
 
 let tickers = {};
 let tickersInfo;
-const RATE_DIFFERENCE_PERCENT_THRESHOLD = 25;
 
 function refresh() {
 
@@ -126,7 +125,7 @@ function mergeData(tickers1, tickers2, source1, source2) {
   Object.keys(merged).forEach((m) => {
     if (utils.isPositiveOrZeroNumber(tickers1[m]) && utils.isPositiveOrZeroNumber(tickers2[m])) {
       const diff = utils.numbersDifferencePercent(tickers1[m], tickers2[m]);
-      if (diff > RATE_DIFFERENCE_PERCENT_THRESHOLD) {
+      if (diff > config.rateDifferencePercentThreshold) {
         alertTickers.push(`**${m}** ${diff.toFixed(0)}%: ${+tickers1[m].toFixed(8)} (${source1}) — ${+tickers2[m].toFixed(8)} (${source2})`);
       }
     }
