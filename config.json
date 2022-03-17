@@ -1,6 +1,7 @@
 {
   "crypto_cmc": ["BTC", "ETH", "DASH", "LSK", "DOGE", "BCH", "USDT", "LTC", "TRX", "ADM",
     "BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS", "USDS"],
+  "crypto_cmc_coinids": [],
   "crypto_cc": ["BTC", "ETH", "DASH", "LSK", "DOGE", "BCH", "USDT", "LTC", "TRX", "ADM",
     "BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS"],
   "crypto_cg": [],

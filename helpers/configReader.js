@@ -11,13 +11,13 @@ try {
     config = JSON.parse(jsonminify(fs.readFileSync('./config.json', 'utf-8')));
   }
 
-  config.isCc = config.crypto_cc && config.crypto_cc.length !== 0 && config.ccApiKey;
-  config.isCg = (config.crypto_cg && config.crypto_cg.length !== 0) ||
-    (config.crypto_cg_coinids && config.crypto_cg_coinids.length !== 0);
-  config.isCmc = config.crypto_cmc && config.crypto_cmc.length !== 0 && config.cmcApiKey;
+  config.isCc = config.crypto_cc?.length !== 0 && config.ccApiKey;
+  config.isCg = (config.crypto_cg?.length !== 0) || (config.crypto_cg_coinids?.length !== 0);
+  config.isCmc = (config.crypto_cmc?.length !== 0) || (config.crypto_cmc_coinids?.length !== 0) && config.cmcApiKey;
   config.version = require('../package.json').version;
   config.isDev = isDev;
-  config.crypto_all = config.crypto_cmc.concat(config.crypto_cc); // Also, Coingecko coins will be added in getCg module
+  // Also, Coingecko coins will be added in getCg module and Coinmarketcap in getCmc
+  config.crypto_all = [].concat(config.crypto_cc);
   console.info(`InfoService successfully read a config-file${isDev ? ' (dev)' : ''}.`);
 
 } catch (e) {

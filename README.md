@@ -43,9 +43,10 @@ nano config.json
 Parameters:
 
 - `crypto_cmc` <array> List of coins to fetch rates from Coinmarketcap
+- `crypto_cmc_coinids` <object> List of Coinmarketcap Symbol-Id pairs like { "ADM": 3703 } to fetch rates from Coinmarketcap. Used when one coin symbol is used for different coins. Coin ids can be seen via /cryptocurrency/quotes/latest?slug=coinname request.
 - `crypto_cc` <array> List of coins to fetch rates from Cryptocompare
 - `crypto_cg` <array> List of coins to fetch rates from Coingecko. Better use `crypto_cg_coinids`.
-- `crypto_cg_coinids` <array> List of Coingecko coin Ids to fetch rates from Coingecko. Used when one coin symbol is used for different coins. Coin ids can be seen on https://api.coingecko.com/api/v3/coins/list.
+- `crypto_cg_coinids` <string, array> List of Coingecko coin Ids to fetch rates from Coingecko. Used when one coin symbol is used for different coins. Coin ids can be seen on https://api.coingecko.com/api/v3/coins/list.
 - `fiat` <object> List of fiat pairs and their codes to fetch from MOEX
 - `baseCoins` <array> List of coins to calculate all available pairs using `crypto` and `fiat`
 - `cmcApiKey` <string> Coinmarketcap API key. You must get yours at https://coinmarketcap.com/api/.
