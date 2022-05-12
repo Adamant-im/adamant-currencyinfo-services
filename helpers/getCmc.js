@@ -64,11 +64,11 @@ function getCmcCoinIds() {
           config.isCmcFull = true;
           log.log(`Coinmarketcap coin ids fetched successfully`);
         } catch (e) {
-          notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Unable to get Coinmarketcap coin ids. Try to restart InfoService or there will be no rates from Coinmarketacap. Error: ${e}`, 'error');
+          notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Unable to get Coinmarketcap coin ids. Try to restart InfoService or there will be no rates from Coinmarketcap. Error: ${e}`, 'error');
         }
       })
       .catch(function(error) {
-        notify(`Request to ${url} failed with ${error.response?.status} status code, ${error.toString()}. Unable to get Coinmarketacap coin ids. Try to restart InfoService or there will be no rates from Coinmarketacap.`, 'error');
+        notify(`Request to ${url} failed with ${error.response?.status} status code, ${error.toString()}. Unable to get Coinmarketcap coin ids. Try to restart InfoService or there will be no rates from Coinmarketcap.`, 'error');
       });
 }
 
@@ -82,7 +82,7 @@ module.exports = (base, cb) => {
   }
 
   const url = url_base + '?' +
-    'id=' + config.crypto_cmc_full.map((cyrrency) => cyrrency.cmc_id).join(',') +
+    'id=' + config.crypto_cmc_full.map((currency) => currency.cmc_id).join(',') +
     '&convert=' + base;
   const httpOptions = {
     url,

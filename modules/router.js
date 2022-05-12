@@ -19,16 +19,16 @@ app.get('/get', (req, res) => {
     res.json(respSuccess(tickers));
   } else {
     coins = coins.toUpperCase();
-    const filterredTickers = {};
+    const filteredTickers = {};
     let arrCoins = [coins];
     if (~coins.indexOf(',')) {
       arrCoins = coins.split(',');
     }
     arrCoins.forEach((coin) => {
       const filteredMarkets = Object.keys(tickers).filter((c) => ~c.indexOf(coin.trim()));
-      filteredMarkets.forEach((c) => filterredTickers[c] = tickers[c]);
+      filteredMarkets.forEach((c) => filteredTickers[c] = tickers[c]);
     });
-    res.json(respSuccess(filterredTickers));
+    res.json(respSuccess(filteredTickers));
   }
 });
 

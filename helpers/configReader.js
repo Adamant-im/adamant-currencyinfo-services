@@ -13,7 +13,7 @@ try {
 
   config.isCc = config.crypto_cc?.length !== 0 && config.ccApiKey;
   config.isCg = (config.crypto_cg?.length !== 0) || (config.crypto_cg_coinids?.length !== 0);
-  config.isCmc = (config.crypto_cmc?.length !== 0) || (config.crypto_cmc_coinids?.length !== 0) && config.cmcApiKey;
+  config.isCmc = (config.crypto_cmc?.length !== 0 || config.crypto_cmc_coinids?.length !== 0) && config.cmcApiKey;
   config.version = require('../package.json').version;
   config.isDev = isDev;
   // Also, Coingecko coins will be added in getCg module and Coinmarketcap in getCmc
