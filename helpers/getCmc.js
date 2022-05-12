@@ -98,13 +98,26 @@ module.exports = (base, cb) => {
         try {
           const data = response.data.data;
           const rates = {};
+          const unavailableList = [];
           config.crypto_cmc.forEach((ticker) => {
             const currency = _.findWhere(data, {
               symbol: ticker,
             });
-            rates[ticker + '/' + base] = +currency.quote[base].price.toFixed(8);
+            if (currency?.quote?.[base]?.price) {
+              rates[ticker + '/' + base] = +currency.quote[base].price.toFixed(8);
+            } else {
+              unavailableList.push(ticker);
+            }
           });
-          log.log(`Coinmarketcap rates updated against ${base} successfully`);
+          if (unavailableList.length) {
+            if (unavailableList.length === config.crypto_cmc.length) {
+              notify(`Unable to get all of ${config.crypto_cmc.length} coin rates from request to ${url}. Check Coinmarketcap service and config file.`, 'error');
+            } else {
+              log.warn(`Coinmarketcap rates updated against ${base} successfully, except ${unavailableList.join(', ')}`);
+            }
+          } else {
+            log.log(`Coinmarketcap rates updated against ${base} successfully`);
+          }
           cb(rates);
         } catch (e) {
           notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Wrong Coinmarketcap API key? Error: ${e}`, 'error');
