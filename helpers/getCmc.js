@@ -17,6 +17,8 @@ const _ = require('underscore');
  * convert_id: Optionally calculate market quotes by CoinMarketCap ID instead of symbol. This option is
  *    identical to convert outside of ID format. Ex: convert_id=1,2781 would replace convert=BTC,USD in
  *    your query. This parameter cannot be used when convert is used.
+ * Note: find id on a coin's webpage with "coinId":1027", "200x200/1027.png"
+ * Note: find slug in a coin's URL like https://coinmarketcap.com/currencies/bitcoin/
  */
 const url_base = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest';
 
