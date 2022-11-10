@@ -46,7 +46,6 @@ module.exports = (cb) => {
           cb(result);
         } catch (e) {
           notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url1}. Error: ${e}`, 'error');
-          reject();
         }
       })
       .catch(function(error) {
