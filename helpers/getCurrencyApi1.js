@@ -22,7 +22,7 @@ module.exports = (cb) => {
               rates[currency.toUpperCase() + '/USD'] = +(1 / +rate).toFixed(8);
             }
           });
-          log.log(`Cryptocurrency-Api rates updated successfully`);
+          log.log(`Cryptocurrency-Api1 rates updated successfully`);
           cb(rates);
         } catch (e) {
           notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Error: ${e}`, 'error');
