@@ -1,6 +1,7 @@
 node_modules/
 logs/
 .vscode/
+.idea/
 config.test
 config.test2
 package-lock.json
