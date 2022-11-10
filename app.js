@@ -1,5 +1,6 @@
 const Moex = require('./helpers/getMoex');
 const CurrencyApi1 = require('./helpers/getCurrencyApi1');
+const CurrencyApi2 = require('./helpers/getCurrencyApi2');
 const Cmc = require('./helpers/getCmc');
 const Cc = require('./helpers/getCc');
 const Cg = require('./helpers/getCg');
@@ -34,9 +35,24 @@ function refresh() {
       notify(`Error: Unable to get data from CurrencyApi1. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
     }
 
+    CurrencyApi2((data) => {
+      if (data) {
+        tickersInfo = mergeData({}, data, 'CurrencyApi1', 'CurrencyApi2');
+        if (tickersInfo.isAlert) {
+          notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
+          fetchedAll = false;
+        } else {
+          tickers = tickersInfo.merged;
+        }
+      } else {
+        fetchedAll = false;
+        notify(`Error: Unable to get data from CurrencyApi2. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
+      }
+    });
+
     Cmc('USD', (data) => {
       if (data) {
-        tickersInfo = mergeData(tickers, data, 'CurrencyApi1', 'Cmc');
+        tickersInfo = mergeData(tickers, data, 'CurrencyApi1+CurrencyApi2', 'Cmc');
         if (tickersInfo.isAlert) {
           notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
           fetchedAll = false;
@@ -50,7 +66,7 @@ function refresh() {
 
       Moex((data) => {
         if (data) {
-          tickersInfo = mergeData(tickers, data, 'CurrencyApi1+Cmc', 'Moex');
+          tickersInfo = mergeData(tickers, data, 'CurrencyApi1+CurrencyApi2+Cmc', 'Moex');
           if (tickersInfo.isAlert) {
             notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
             fetchedAll = false;
@@ -64,7 +80,7 @@ function refresh() {
 
         Cc('USD', (data) => {
           if (data) {
-            tickersInfo = mergeData(tickers, data, 'CurrencyApi1+Cmc+Moex', 'Cc');
+            tickersInfo = mergeData(tickers, data, 'CurrencyApi1+CurrencyApi2+Cmc+Moex', 'Cc');
             if (tickersInfo.isAlert) {
               notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
               fetchedAll = false;
@@ -78,7 +94,7 @@ function refresh() {
 
           Cg('USD', (data) => {
             if (data) {
-              tickersInfo = mergeData(tickers, data, 'CurrencyApi1+Cmc+Moex+Cc', 'Cg');
+              tickersInfo = mergeData(tickers, data, 'CurrencyApi1+CurrencyApi2+Cmc+Moex+Cc', 'Cg');
               if (tickersInfo.isAlert) {
                 notify(`Error: rates from different sources significantly differs: ${tickersInfo.alertString}. InfoService will provide previous rates; historical rates wouldn't be saved.`, 'error');
                 fetchedAll = false;
