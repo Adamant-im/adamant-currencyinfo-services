@@ -4,7 +4,8 @@ const log = require('./log');
 const notify = require('./notify');
 const _ = require('underscore');
 
-const url = 'https://iss.moex.com/iss/engines/currency/markets/selt/securities.jsonp';
+// const url = 'https://iss.moex.com/iss/engines/currency/markets/selt/securities.jsonp';
+const url = 'https://rusdoor.adamant.im/securities.jsonp';
 
 module.exports = (cb) => {
 
