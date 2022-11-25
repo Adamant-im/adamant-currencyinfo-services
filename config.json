@@ -7,7 +7,7 @@
   "crypto_cg": [],
   "crypto_cg_coinids": ["bitcoin", "ethereum", "dash", "lisk", "dogecoin", "tether", "litecoin", "adamant-messenger",
 		"binancecoin", "ethereum-classic", "usd-coin", "true-usd", "stableusd", "resfinex-token"],
-  "baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH"],
+  "baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH", "KRW"],
   "fiat": {
     "USD/RUB": "USDRUB_TOM",
     "EUR/RUB": "EURRUB_TOM",

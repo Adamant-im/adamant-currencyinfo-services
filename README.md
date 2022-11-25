@@ -1,9 +1,10 @@
-ADAMANT InfoServices is a crypto and fiat currency rates service provider. It collects rates from MOEX, Currency-Api, Coinmarketcap, CryptoCompare and Coingecko and calculates cross-rates, and provides information via API.
+ADAMANT InfoServices is a crypto and fiat currency rates service provider. It collects rates from MOEX, Currency-Api, ExchangeRate, Coinmarketcap, CryptoCompare and Coingecko and calculates cross-rates, and provides information via API.
 
 Features:
 
 - Collects rates from MOEX for fiat tickers
 - Collects rates from Currency-Api for fiat tickers
+- Collects rates from ExchangeRate (Currency-Api2) for fiat tickers
 - Collects rates from Coinmarketcap for crypto tickers
 - Collects rates from CryptoCompare for crypto tickers
 - Collects rates from Coingecko for crypto tickers
@@ -21,8 +22,8 @@ Features:
 
 ## Requirements
 
-- Ubuntu 18 / 20 (we didn't test with others)
-- NodeJS v12+
+- Ubuntu 18+ (we didn't test with others)
+- NodeJS v16+
 - MongoDB ([installation instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/))
 
 ## Setup
