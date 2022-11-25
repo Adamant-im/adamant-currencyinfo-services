@@ -5,8 +5,10 @@ const notify = require('./notify');
 
 // https://github.com/Formicka/exchangerate.host
 const url = 'https://api.exchangerate.host/latest?base=USD';
-// This service updates only once in 24h, so skip cryptos
-const skipCoins = ['USD', 'BTC', 'ETH'];
+// This service doesn't include crypto except Bitcoin
+// Also, it sometimes provides chicken digits, like 47k usd for Bitcoin instead of 16k, and 73 rub/usd instead of 60
+// Good we have built-in check system
+const skipCoins = ['USD', 'ETH'];
 
 module.exports = (cb) => {
 
