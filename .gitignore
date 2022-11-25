@@ -4,5 +4,4 @@ logs/
 .idea/
 config.test
 config.test2
-package-lock.json
 tests.js
