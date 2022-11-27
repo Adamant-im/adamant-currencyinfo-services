@@ -1,5 +1,7 @@
 ADAMANT InfoServices is a crypto and fiat currency rates service provider. It collects rates from MOEX, Currency-Api, ExchangeRate, Coinmarketcap, CryptoCompare and Coingecko and calculates cross-rates, and provides information via API.
 
+It is own-hosted service run on your server, it stores all rates in local database, updated with `refreshInterval` frequency.
+
 Features:
 
 - Collects rates from MOEX for fiat tickers
@@ -8,6 +10,7 @@ Features:
 - Collects rates from Coinmarketcap for crypto tickers
 - Collects rates from CryptoCompare for crypto tickers
 - Collects rates from Coingecko for crypto tickers
+- Own-hosted service
 - Reliable: uses different sources for one coin, and notifies about significant deviation
 - Minimum API calls. Free API keys fit.
 - Notifications in case of errors to Slack
