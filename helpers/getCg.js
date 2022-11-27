@@ -35,6 +35,7 @@ function getCgCoinIds() {
             config.crypto_cg_full.push(cg_crypto);
           });
           config.crypto_all = config.crypto_all.concat(config.crypto_cg_full.map((e) => e.symbol));
+          config.crypto_all = [...new Set(config.crypto_all)]; // Remove duplicates
           config.isCgFull = true;
           log.log(`Coingecko coin ids fetched successfully`);
         } catch (e) {

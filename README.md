@@ -1,9 +1,10 @@
-ADAMANT InfoServices is a crypto and fiat currency rates service provider. It collects rates from MOEX, Currency-Api, Coinmarketcap, CryptoCompare and Coingecko and calculates cross-rates, and provides information via API.
+ADAMANT InfoServices is a crypto and fiat currency rates service provider. It collects rates from MOEX, Currency-Api, ExchangeRate, Coinmarketcap, CryptoCompare and Coingecko and calculates cross-rates, and provides information via API.
 
 Features:
 
 - Collects rates from MOEX for fiat tickers
 - Collects rates from Currency-Api for fiat tickers
+- Collects rates from ExchangeRate (Currency-Api2) for fiat tickers
 - Collects rates from Coinmarketcap for crypto tickers
 - Collects rates from CryptoCompare for crypto tickers
 - Collects rates from Coingecko for crypto tickers
@@ -21,8 +22,8 @@ Features:
 
 ## Requirements
 
-- Ubuntu 18 / 20 (we didn't test with others)
-- NodeJS v12+
+- Ubuntu 18+ (we didn't test with others)
+- NodeJS v16+
 - MongoDB ([installation instructions](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/))
 
 ## Setup
@@ -43,9 +44,10 @@ nano config.json
 Parameters:
 
 - `crypto_cmc` <array> List of coins to fetch rates from Coinmarketcap
+- `crypto_cmc_coinids` <object> List of Coinmarketcap Symbol-Id pairs like { "ADM": 3703 } to fetch rates from Coinmarketcap. Used when one coin symbol is used for different coins. Coin ids can be seen via /cryptocurrency/quotes/latest?slug=coinname request.
 - `crypto_cc` <array> List of coins to fetch rates from Cryptocompare
 - `crypto_cg` <array> List of coins to fetch rates from Coingecko. Better use `crypto_cg_coinids`.
-- `crypto_cg_coinids` <array> List of Coingecko coin Ids to fetch rates from Coingecko. Used when one coin symbol is used for different coins. Coin ids can be seen on https://api.coingecko.com/api/v3/coins/list.
+- `crypto_cg_coinids` <string, array> List of Coingecko coin Ids to fetch rates from Coingecko. Used when one coin symbol is used for different coins. Coin ids can be seen on https://api.coingecko.com/api/v3/coins/list.
 - `fiat` <object> List of fiat pairs and their codes to fetch from MOEX
 - `baseCoins` <array> List of coins to calculate all available pairs using `crypto` and `fiat`
 - `cmcApiKey` <string> Coinmarketcap API key. You must get yours at https://coinmarketcap.com/api/.

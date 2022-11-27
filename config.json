@@ -1,19 +1,21 @@
 {
   "crypto_cmc": ["BTC", "ETH", "DASH", "LSK", "DOGE", "BCH", "USDT", "LTC", "TRX", "ADM",
     "BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS", "USDS"],
+  "crypto_cmc_coinids": [],
   "crypto_cc": ["BTC", "ETH", "DASH", "LSK", "DOGE", "BCH", "USDT", "LTC", "TRX", "ADM",
     "BSV", "BNB", "XMR", "XEM", "NEO", "ETC", "USDC", "ZEC", "TUSD", "KCS"],
   "crypto_cg": [],
   "crypto_cg_coinids": ["bitcoin", "ethereum", "dash", "lisk", "dogecoin", "tether", "litecoin", "adamant-messenger",
 		"binancecoin", "ethereum-classic", "usd-coin", "true-usd", "stableusd", "resfinex-token"],
-  "baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH"],
+  "baseCoins": ["USD", "RUB", "EUR", "CNY", "JPY", "BTC", "ETH", "KRW"],
   "fiat": {
     "USD/RUB": "USDRUB_TOM",
     "EUR/RUB": "EURRUB_TOM",
     "GBR/RUB": "GBPRUB_TOM",
     "CNY/RUB": "CNYRUB_TOM",
-    "JPY/RUB": "JPYRUB_TOD"
+    "JPY/RUB": "JPYRUB_TOM"
   },
+  "rateDifferencePercentThreshold": 25,
   "cmcApiKey": "Put yours Coinmarketcap API key",
   "ccApiKey": "Put yours CryptoCompare API key",
   "cgApiKey": "No need for Coingecko API key",
