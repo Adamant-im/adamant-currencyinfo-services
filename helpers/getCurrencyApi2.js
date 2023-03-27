@@ -20,8 +20,8 @@ module.exports = (cb) => {
           config.baseCoins.forEach((currency) => {
             const rate = data[currency.toUpperCase()];
             if (!skipCoins.includes(currency) && rate) {
-              rates['USD/' + currency.toUpperCase()] = +rate.toFixed(8);
-              rates[currency.toUpperCase() + '/USD'] = +(1 / +rate).toFixed(8);
+              rates['USD/' + currency.toUpperCase()] = +rate.toFixed(config.decimals);
+              rates[currency.toUpperCase() + '/USD'] = +(1 / +rate).toFixed(config.decimals);
             }
           });
           log.log(`Currency-Api2 rates updated successfully`);

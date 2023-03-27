@@ -24,7 +24,7 @@ module.exports = (base, cb) => {
           const data = response.data;
           const rates = {};
           config.crypto_cc.forEach((t) => {
-            rates[t + '/' + base] = +data[t][base].toFixed(8);
+            rates[t + '/' + base] = +data[t][base].toFixed(config.decimals);
           });
           log.log(`CryptoCompare rates updated against ${base} successfully`);
           cb(rates);

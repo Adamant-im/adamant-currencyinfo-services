@@ -106,7 +106,7 @@ module.exports = (base, cb) => {
               symbol: ticker,
             });
             if (currency?.quote?.[base]?.price) {
-              rates[ticker + '/' + base] = +currency.quote[base].price.toFixed(8);
+              rates[ticker + '/' + base] = +currency.quote[base].price.toFixed(config.decimals);
             } else {
               unavailableList.push(ticker);
             }
