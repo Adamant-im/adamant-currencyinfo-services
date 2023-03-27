@@ -21,13 +21,13 @@ module.exports = (cb) => {
             });
             let price = (tickerData[14] + tickerData[15]) / 2;
             if (pair === 'JPY/RUB') price /= 100;
-            rates[pair] = +price.toFixed(8);
+            rates[pair] = +price.toFixed(config.decimals);
             if (pair === 'USD/RUB') {
-              rates['RUB/USD'] = +(1 / rates['USD/RUB']).toFixed(8);
+              rates['RUB/USD'] = +(1 / rates['USD/RUB']).toFixed(config.decimals);
             } else {
               const market = 'USD/' + pair.replace('/RUB', '');
               const price = rates['USD/RUB'] / rates[pair];
-              rates[market] = +price.toFixed(8);
+              rates[market] = +price.toFixed(config.decimals);
             }
           });
           log.log(`MOEX rates updated successfully`);

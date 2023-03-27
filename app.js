@@ -142,7 +142,7 @@ function mergeData(tickers1, tickers2, source1, source2) {
     if (utils.isPositiveOrZeroNumber(tickers1[m]) && utils.isPositiveOrZeroNumber(tickers2[m])) {
       const diff = utils.numbersDifferencePercent(tickers1[m], tickers2[m]);
       if (diff > config.rateDifferencePercentThreshold) {
-        alertTickers.push(`**${m}** ${diff.toFixed(0)}%: ${+tickers1[m].toFixed(8)} (${source1}) — ${+tickers2[m].toFixed(8)} (${source2})`);
+        alertTickers.push(`**${m}** ${diff.toFixed(0)}%: ${+tickers1[m].toFixed(config.decimals)} (${source1}) — ${+tickers2[m].toFixed(config.decimals)} (${source2})`);
       }
     }
   });
@@ -164,7 +164,7 @@ function converter(tickers) {
     if (!price) return;
     config.crypto_all.forEach((c) => {
       const priceAlt = 1 / tickers[c + '/USD'];
-      tickers[c + '/' + b] = +(price / priceAlt).toFixed(8);
+      tickers[c + '/' + b] = +(price / priceAlt).toFixed(config.decimals);
     });
   });
 }

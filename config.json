@@ -15,6 +15,7 @@
     "CNY/RUB": "CNYRUB_TOM",
     "JPY/RUB": "JPYRUB_TOM"
   },
+  "decimals": 12,
   "rateDifferencePercentThreshold": 25,
   "cmcApiKey": "Put yours Coinmarketcap API key",
   "ccApiKey": "Put yours CryptoCompare API key",

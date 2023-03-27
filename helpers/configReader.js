@@ -11,6 +11,7 @@ try {
     config = JSON.parse(jsonminify(fs.readFileSync('./config.json', 'utf-8')));
   }
 
+  config.decimals = config.decimals || 10;
   config.isCc = config.crypto_cc?.length && config.ccApiKey;
   config.isCg = (config.crypto_cg?.length) || (config.crypto_cg_coinids?.length);
   config.isCmc = (config.crypto_cmc?.length || config.crypto_cmc_coinids?.length) && config.cmcApiKey;

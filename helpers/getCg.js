@@ -83,7 +83,7 @@ module.exports = (base, cb) => {
           const data = response.data;
           const rates = {};
           config.crypto_cg_full.forEach((t) => {
-            rates[t['symbol'] + '/' + base] = +data[t['cg_id']][base.toLowerCase()].toFixed(8);
+            rates[t['symbol'] + '/' + base] = +data[t['cg_id']][base.toLowerCase()].toFixed(config.decimals);
           });
           log.log(`Coingecko rates updated against ${base} successfully`);
           cb(rates);
