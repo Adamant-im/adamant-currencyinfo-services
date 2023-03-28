@@ -13,7 +13,7 @@ try {
 
   config.decimals = config.decimals || 10;
   config.isCc = config.crypto_cc?.length && config.ccApiKey;
-  config.isCg = (config.crypto_cg?.length) || (config.crypto_cg_coinids?.length);
+  config.isCg = (config.crypto_cg?.length) || (config.crypto_cg_coinids?.length) && config.cgApiKey;
   config.isCmc = (config.crypto_cmc?.length || config.crypto_cmc_coinids?.length) && config.cmcApiKey;
   config.version = require('../package.json').version;
   config.isDev = isDev;
