@@ -22,13 +22,21 @@ const _ = require('underscore');
  */
 const url_base = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest';
 
+/**
+ * Receives CMC coin ids for coin tickers config.crypto_cmc[]
+ * Stores config.crypto_cmc_full[] { symbol, cmc_id }, combined crypto_cmc[] and crypto_cmc_coinids[]
+ * - Ids of all the CMC coins to fetch rates
+ * Updates config.crypto_all[] — All of coin tickers to fetch rates
+ * @returns {Void}
+ */
 function getCmcCoinIds() {
-
   config.crypto_cmc_full = [];
   if (!config.isCmc) return;
 
-  const url = url_base + '?' +
-    'symbol=' + config.crypto_cmc.join();
+  // Remove coins where ids are already set with config.crypto_cmc_coinids (duplicates)
+  config.crypto_cmc = config.crypto_cmc.filter((ticker) => !config.crypto_cmc_coinids[ticker]);
+
+  const url = `${url_base}?symbol=${config.crypto_cmc.join()}`;
   const httpOptions = {
     url,
     method: 'get',
@@ -42,28 +50,38 @@ function getCmcCoinIds() {
       .then(function(response) {
         try {
           const data = response.data.data;
+
+          // Fetch coin ids for crypto_cmc[]
           config.crypto_cmc.forEach((ticker) => {
             const currency = _.findWhere(data, {
               symbol: ticker.toUpperCase(),
             });
+
             if (currency) {
               cmc_crypto = {
                 symbol: ticker,
                 cmc_id: currency.id,
               };
+
               config.crypto_cmc_full.push(cmc_crypto);
             }
           });
+
+          // Combine crypto_cmc_full[] with crypto_cmc_coinids[] from config
           Object.keys(config.crypto_cmc_coinids).forEach((ticker) => {
             cmc_crypto = {
               symbol: ticker.toUpperCase(),
               cmc_id: config.crypto_cmc_coinids[ticker],
             };
+
             config.crypto_cmc_full.push(cmc_crypto);
           });
+
           config.crypto_all = config.crypto_all.concat(config.crypto_cmc_full.map((crypto) => crypto.symbol));
           config.crypto_all = [...new Set(config.crypto_all)]; // Remove duplicates
+
           config.isCmcFull = true;
+
           log.log(`Coinmarketcap coin ids fetched successfully`);
         } catch (e) {
           notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Unable to get Coinmarketcap coin ids. Try to restart InfoService or there will be no rates from Coinmarketcap. Error: ${e}`, 'error');
@@ -76,16 +94,21 @@ function getCmcCoinIds() {
 
 getCmcCoinIds();
 
+/**
+ * Fetches coin rates in {base} value
+ * @param {String} base As USD
+ * @param {Function} cb Callback
+ * @returns {Void}
+ */
 module.exports = (base, cb) => {
-
   if (!config.isCmcFull) {
     cb({});
     return;
   }
 
-  const url = url_base + '?' +
-    'id=' + config.crypto_cmc_full.map((currency) => currency.cmc_id).join(',') +
-    '&convert=' + base;
+  const cmcIds = config.crypto_cmc_full.map((currency) => currency.cmc_id).join();
+
+  const url = `${url_base}?id=${cmcIds}&convert=${base}`;
   const httpOptions = {
     url,
     method: 'get',
@@ -99,18 +122,22 @@ module.exports = (base, cb) => {
       .then(function(response) {
         try {
           const data = response.data.data;
+
           const rates = {};
           const unavailableList = [];
-          config.crypto_cmc.forEach((ticker) => {
+
+          config.crypto_cmc_full.map((crypto) => crypto.symbol).forEach((ticker) => {
             const currency = _.findWhere(data, {
               symbol: ticker,
             });
+
             if (currency?.quote?.[base]?.price) {
               rates[ticker + '/' + base] = +currency.quote[base].price.toFixed(config.decimals);
             } else {
               unavailableList.push(ticker);
             }
           });
+
           if (unavailableList.length) {
             if (unavailableList.length === config.crypto_cmc.length) {
               notify(`Unable to get all of ${config.crypto_cmc.length} coin rates from request to ${url}. Check Coinmarketcap service and config file.`, 'error');
@@ -120,6 +147,7 @@ module.exports = (base, cb) => {
           } else {
             log.log(`Coinmarketcap rates updated against ${base} successfully`);
           }
+
           cb(rates);
         } catch (e) {
           notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Wrong Coinmarketcap API key? Error: ${e}`, 'error');
