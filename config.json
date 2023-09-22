@@ -20,6 +20,9 @@
   "cmcApiKey": "Put yours Coinmarketcap API key",
   "ccApiKey": "Put yours CryptoCompare API key",
   "cgApiKey": "No need for Coingecko API key",
+  "skipApi": {
+    "ExchangeRate": true
+  },
   "port": 36668,
   "refreshInterval": 10,
   "slack": ["https://hooks.slack.com/services/.."],

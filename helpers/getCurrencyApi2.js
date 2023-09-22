@@ -11,28 +11,32 @@ const url = 'https://api.exchangerate.host/latest?base=USD';
 const skipCoins = ['USD', 'ETH'];
 
 module.exports = (cb) => {
-
-  axios.get(url)
-      .then(function(response) {
-        try {
-          const rates = {};
-          const data = response.data.rates;
-          config.baseCoins.forEach((currency) => {
-            const rate = data[currency.toUpperCase()];
-            if (!skipCoins.includes(currency) && rate) {
-              rates['USD/' + currency.toUpperCase()] = +rate.toFixed(config.decimals);
-              rates[currency.toUpperCase() + '/USD'] = +(1 / +rate).toFixed(config.decimals);
-            }
-          });
-          log.log(`Currency-Api2 rates updated successfully`);
-          cb(rates);
-        } catch (e) {
-          notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Error: ${e}`, 'error');
+  if (config.skipApi?.ExchangeRate) {
+    log.log(`Currency-Api2 rates skipped because of config set up`);
+    cb({});
+  } else {
+    axios.get(url)
+        .then(function(response) {
+          try {
+            const rates = {};
+            const data = response.data.rates;
+            config.baseCoins.forEach((currency) => {
+              const rate = data[currency.toUpperCase()];
+              if (!skipCoins.includes(currency) && rate) {
+                rates['USD/' + currency.toUpperCase()] = +rate.toFixed(config.decimals);
+                rates[currency.toUpperCase() + '/USD'] = +(1 / +rate).toFixed(config.decimals);
+              }
+            });
+            log.log(`Currency-Api2 rates updated successfully`);
+            cb(rates);
+          } catch (e) {
+            notify(`Unable to process data ${JSON.stringify(response.data)} from request to ${url}. Error: ${e}`, 'error');
+            cb(false);
+          }
+        })
+        .catch(function(error) {
+          notify(`Request to ${url} failed with ${error.response?.status} status code, ${error.toString()}${error.response?.data ? '. Message: ' + JSON.stringify(error.response.data) : ''}.`, 'error');
           cb(false);
-        }
-      })
-      .catch(function(error) {
-        notify(`Request to ${url} failed with ${error.response?.status} status code, ${error.toString()}${error.response?.data ? '. Message: ' + JSON.stringify(error.response.data) : ''}.`, 'error');
-        cb(false);
-      });
+        });
+  }
 };
