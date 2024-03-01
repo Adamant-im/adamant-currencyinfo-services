@@ -3,8 +3,8 @@ const config = require('./configReader');
 const log = require('./log');
 const notify = require('./notify');
 
-// https://github.com/fawazahmed0/currency-api#readme
-const url = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd.json';
+// https://github.com/fawazahmed0/exchange-api#readme
+const url = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json';
 // This service updates only once in 24h, so skip cryptos
 const skipCoins = ['USD', 'BTC', 'ETH'];
 
