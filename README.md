@@ -1,3 +1,9 @@
+# Deprecated and replaced with Currencyinfo
+
+We replaced InfoServices with [Currencyinfo](https://github.com/Adamant-im/currencyinfo/), a powerful, self-hosted, and built-from-scratch crypto and fiat currency rates service provider.
+
+# Legacy description
+
 ADAMANT InfoServices is a crypto and fiat currency rates service provider. It collects rates from MOEX, Currency-Api, ExchangeRate, Coinmarketcap, CryptoCompare and Coingecko and calculates cross-rates, and provides information via API.
 
 It is own-hosted service run on your server, it stores all rates in local database, updated with `refreshInterval` frequency.
